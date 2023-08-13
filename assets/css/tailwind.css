@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+    background-color: #fff;
+    color: rgba(0,0,0,0.8);
+}
+.dark-mode body {
+    background-color: rgb(33, 32, 32);
+    color: #ebf4f1;
+}
+.sepia-mode body {
+    background-color: #f1e7d0;
+    color: #433422;
+}

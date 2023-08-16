@@ -6,7 +6,7 @@ import EnumApiErrorCode from '../models/enums/enumApiErrorCode';
 import EnumMessageType from '../models/enums/enumMessageType';
 import useVariable from './useVariable';
 import formHelper, { IRule } from '../libraries/elementUiHelpers/formHelper';
-import { instance } from '../axios/axios';
+
 
 export default function useRegister() {
     const { isProcessing, ruleFormRef } = useVariable();

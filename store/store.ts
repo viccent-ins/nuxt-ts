@@ -52,10 +52,7 @@ export const useStores = defineStore('store', {
         return auth;
       },
       apiServer: (state) => {
-        // const config = useRuntimeConfig().public;
-        // let server = state.server;
-        // return 'http://127.0.0.1:8000/';
-        return 'https://production-server.com/';
+        return 'https://sc2houduan.bitlandweb.com/addons/shopro';
       },
   
     },

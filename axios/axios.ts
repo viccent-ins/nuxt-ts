@@ -9,7 +9,7 @@ export const useApiBridge = () => {
   const stores = useStores();
   const { authorisation, apiServer } = storeToRefs(stores);
   const instance = axios.create({
-    baseURL: `${apiServer.value}api/`,
+    baseURL: `${apiServer.value}/`,
     headers: { Authorization: `Bearer ${authorisation.value.token}`},
   });
   instance.interceptors.response.use(

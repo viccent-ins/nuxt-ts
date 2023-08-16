@@ -1,13 +1,15 @@
 <template>
-<!--    <LazyNuxtLayout name="front-site">-->
-<!--       <NuxtPage/>-->
-<!--    </LazyNuxtLayout>-->
-  <div>
-    <PortfolioComponent/>
-  </div>
+
+    <div>
+      <LazyNuxtLayout name="front-site">
+          <NuxtPage/>
+      </LazyNuxtLayout>
+    </div>
+<!--  <div>-->
+<!--    <PortfolioComponent/>-->
+<!--  </div>-->
 </template>
 <script setup lang="ts">
-  // import { useStore } from '@/stores';
   // const store = useStore();
   // import { t } from '@/i18n';
   // const displayLang = computed(() => {
@@ -21,3 +23,7 @@
   //   window.location.reload();
   // };
 </script>
+<style scoped >
+
+</style>
+

@@ -5,6 +5,7 @@ import { IRegisterRequest, IRegisterResponse } from '@/models/auth/IRegisterRequ
 import IApiResponse from '@/models/apiResponse';
 import { IUserResponse } from '@/models/auth/IUser';
 import { useStores } from "~/store/store";
+import IBaseResponse from "~/models/IBaseResponse";
 
 export default {
   async renewAxiosInstanceToken(authorisation: IAuthorisation) {
@@ -29,6 +30,10 @@ export default {
     },
     getUser(): IAxiosPromise<IUserResponse> {
         const response = useApiBridge().instance.get(`getUsers`);
+        return response;
+    },
+    getCategory(): IAxiosPromise<IBaseResponse> {
+        const response = useApiBridge().instance.get(`category?id=43`);
         return response;
     },
 };

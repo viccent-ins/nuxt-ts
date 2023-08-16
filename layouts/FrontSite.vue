@@ -2,10 +2,10 @@
   <Head>
     <Title>Nuxt3App - {{ title }}</Title>
     <Meta name="description" :content="title" />
-    <Link rel="icon" href="images/logo.png"></Link>
+    <Link rel="icon" href="/images/shopro.png"></Link>
   </Head>
-  <HeaderComponent/>
-  <MenuComponent/>
+<!--  <HeaderComponent/>-->
+<!--  <MenuComponent/>-->
   <slot/>
 </template>
 <script setup lang="ts">

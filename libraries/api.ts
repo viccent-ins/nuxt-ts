@@ -28,4 +28,8 @@ export default {
         const response = apiCalling.getUser();
         return getResponse(response);
     },
+    getCategory(): Promise<ApiResponse<IBaseResponse>>{
+        const response = apiCalling.getCategory();
+        return getResponse(response);
+    }
 };

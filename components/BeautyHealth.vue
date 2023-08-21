@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-8 mx-auto  bg-white shadow rounded-lg">
+  <div class="w-full lg:container mt-8 mx-auto  bg-white shadow rounded-lg">
     <div class=" px-4 py-4">
       <div class="flex mb-3 items-baseline border-b ">
         <h3 class="font-bold mb-0">
@@ -15,31 +15,24 @@
               v-for="product in beautyHealthProducts"
               :key="product.id"
               style="width: 250px;"
+              v-loading="isLoading"
           >
             <div>
               <div class="carousel-box mr-4">
                 <div
                     class="border overflow-hidden rounded hover:shadow mt-1 mb-2 bg-white transition duration-100 ease-in-out">
                   <div class="relative">
-
-                    <a href="#" class="flex">
-                      <img class="w-full  h-[210px]  lazyloaded"
-                           :src="product.image" :alt="product.title">
-                    </a>
+                    <nuxt-link :to="`/product/${ product.title.replace(/\//g, '-') }?product_id=${product.id}&cat_ids=${product.category_ids}`" >
+                      <img class="w-full  h-[210px]  lazyloaded" :src="product.image" :alt="product.title">
+                    </nuxt-link>
                     <div class="absolute top-0 right-0 cartList-icon flex-col flex ">
-                      <a href="#"
-                         class="bg-white rounded-full  mt-2 p-2"
-                      >
+                      <a href="#" class="bg-white rounded-full  mt-2 p-2">
                         <Icon name="material-symbols:favorite-outline-rounded" size="20px"/>
                       </a>
-                      <a href="#"
-                         class="bg-white rounded-full my-2 p-2">
+                      <a href="#" class="bg-white rounded-full my-2 p-2">
                         <Icon name="material-symbols:sync-outline" size="20px"/>
                       </a>
-                      <a href="#"
-                         class="bg-white rounded-full p-2"
-
-                      >
+                      <a href="#" class="bg-white rounded-full p-2">
                         <Icon name="material-symbols:shopping-cart-outline" size="20px"/>
                       </a>
                     </div>
@@ -49,8 +42,7 @@
                       <span class="font-bold text-red-600">{{ product.price }}</span>
                     </div>
                     <h3 class="font-medium text-truncate text-lg mb-0 h-[55px]">
-                      <a :href="`/products/${product.id}`" class="d-block text-reset"
-                         tabindex="0">{{ product.title }}</a>
+                      <nuxt-link :to="`/product/${ product.title.replace(/\//g, '-') }?product_id=${product.id}&cat_ids=${product.category_ids}`" class="font-semibold text-lg">{{ product.title }}</nuxt-link>
                     </h3>
                   </div>
                 </div>
@@ -68,6 +60,7 @@
 import useProductList from "~/composables/useProductList";
 const {
   beautyHealthProducts,
+    isLoading
 } = useProductList();
 </script>
 <style scoped>

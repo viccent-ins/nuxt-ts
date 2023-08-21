@@ -1,44 +1,36 @@
 import { reactive } from 'vue';
-import notificationHelper from '../libraries/elementUiHelpers/notificationHelper';
-import apis from '../libraries/api';
-import { IRegisterRequest } from '../models/auth/IRegisterRequest';
-import EnumApiErrorCode from '../models/enums/enumApiErrorCode';
-import EnumMessageType from '../models/enums/enumMessageType';
 import useVariable from './useVariable';
 import formHelper, { IRule } from '../libraries/elementUiHelpers/formHelper';
-
+import axios from "axios";
+import { storeToRefs } from "pinia";
+import { useStores } from "~/store/store";
 
 export default function useRegister() {
     const { isProcessing, ruleFormRef } = useVariable();
-    const registerRequest = reactive<IRegisterRequest>({
-        name: '',
-        email: '',
+    const registerRequest = reactive({
+
+        mobile: '',
         password: '',
-        password_confirmation: '',
+        code: '',
     });
-    // const { commit, state } = useStore();
+    const router = useRouter();
+    const { apiServer } = storeToRefs(useStores());
     const register = async () => {
         isProcessing.value = true;
-        const response = await apis.register(registerRequest);
-        if (response.ErrorCode === EnumApiErrorCode.Success) {
-            notificationHelper.notification('Success', EnumMessageType.Success);
-            // await commit('updateAuthorisation', response.Data.Authorization);
-            // await commit('updateAuth', true);
-            // instance.defaults.headers.Authorization = `Bearer ${state.authorisation.token}`
-            navigateTo('/')
-        } else if (response.ErrorCode === 2) {
-            notificationHelper.notification('Email or password incorrect', EnumMessageType.Error);
-        }
+        await axios.post(apiServer.value + "/user/register", registerRequest)
+            .then(() => {
+                localStorage.setItem('users', JSON.stringify(registerRequest))
+                // redirect to Login page
+               router.replace("/login");
+
+
+            })
+            .catch((err) => console.log("err", err));
         isProcessing.value = false;
     }
-    const validateName = (): string => {
-        if (!registerRequest.name) {
-            return 'Name required!';
-        }
-        return '';
-    };
-    const validateEmail = (): string => {
-        if (!(registerRequest.email.trim() === registerRequest.email)) {
+
+    const validatePhone = (): string => {
+        if (!(registerRequest.mobile.trim() === registerRequest.mobile)) {
             return 'White space not allow';
         }
         return '';
@@ -49,17 +41,11 @@ export default function useRegister() {
         }
         return '';
     };
-    const validatePasswordConfirmation = (): string => {
-        if (!(registerRequest.password_confirmation.trim() === registerRequest.password_confirmation)) {
-            return 'White space not allow';
-        }
-        return '';
-    };
+
     const rules: Record<string, IRule> = {
-        name: { customRule: validateName, required: true },
-        email: { customRule: validateEmail, required: true },
+        mobile: { required: true },
         password: { customRule: validatePassword, required: true },
-        password_confirmation: { customRule: validatePasswordConfirmation, required: true },
+        code: { required: true },
     };
     const registerRule = formHelper.getRules(rules);
     const onRegister = formHelper.getSubmitFunction(register);

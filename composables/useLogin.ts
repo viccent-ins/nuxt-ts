@@ -1,42 +1,33 @@
 import { reactive } from 'vue';
-import EnumApiErrorCode from '../models/enums/enumApiErrorCode';
-import EnumMessageType from '../models/enums/enumMessageType';
-import apis from '../libraries/api';
 import useVariable from './useVariable';
-import { ILogin } from '../models/auth/ILogin'
-import notificationHelper from '../libraries/elementUiHelpers/notificationHelper';
 import formHelper, { IRule } from '../libraries/elementUiHelpers/formHelper';
-import { instance } from '../axios/axios';
+import { storeToRefs } from "pinia";
+import { useStores } from "~/store/store";
+
+import axios from "axios";
 
 export default function useLogin () {
     const { isProcessing, ruleFormRef } = useVariable();
-    const loginRequest = reactive<ILogin>({
-        email: 'sanjohn.in@gmail.com',
-        password: '1234qwer',
+    const loginRequest = reactive({
+        account: '',
+        password: '',
+
     });
+    const router = useRouter();
+    const { apiServer } = storeToRefs(useStores());
     const login = async () => {
         isProcessing.value = true;
-        const response = await apis.login(loginRequest);
-        if (response.ErrorCode === EnumApiErrorCode.Success) {
-            notificationHelper.notification('Login Success!', EnumMessageType.Success);
-            // await commit('updateAuthorisation', response.Data.Authorization);
-            // instance.defaults.headers.Authorization = `Bearer ${state.authorisation.token}`
-            await navigateTo('/')
-        } else {
-            notificationHelper.notification('Email or password is incorrect', EnumMessageType.Error);
-        }
+            await axios.post(apiServer.value +"/user/accountLogin", loginRequest)
+                .then((response) => {
+                    // redirect to Home page
+                    localStorage.setItem("token", response.data.token);
+                        router.push("/");
+                    console.log(response)
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
         isProcessing.value = false;
-    };
-    const validateEmail = (): string => {
-        if (!(loginRequest.email.trim() === loginRequest.email)) {
-            return 'White space not allow';
-        }
-        // eslint-disable-next-line
-        const regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-        if (!(regexp.test(loginRequest.email.toLowerCase()))) {
-            return 'Invalid Email';
-        }
-        return '';
     };
     const validatePassword = (): string => {
         if (!(loginRequest.password.trim() === loginRequest.password)) {
@@ -45,7 +36,7 @@ export default function useLogin () {
         return '';
     };
     const rules: Record<string, IRule> = {
-        email: { customRule: validateEmail, required: true },
+        phone: { required: true },
         password: { customRule: validatePassword, required: true },
     };
     const loginRule = formHelper.getRules(rules);
@@ -56,5 +47,5 @@ export default function useLogin () {
         ruleFormRef,
         loginRequest,
         isProcessing,
-    };
+    }
 };

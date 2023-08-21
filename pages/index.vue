@@ -1,21 +1,17 @@
 <template>
     <div>
-      <TopMenu/>
-      <HeroPart/>
+      <hero-part/>
       <ProductList />
       <FeaturedProduct/>
       <BestSelling/>
       <BeautyHealth/>
       <WomenClothing/>
       <ComputerAccessories/>
-
     </div>
 </template>
 
 <script setup lang="ts">
-
-import { useProductList } from "#imports";
-import HeroPart from "~/layouts/HeroPart.vue";
+import HeroPart from "~/components/HeroPart.vue";
 import ProductList from "~/components/ProductList.vue";
 import FeaturedProduct from "~/components/FeaturedProduct.vue";
 import BestSelling from "~/components/BestSelling.vue";

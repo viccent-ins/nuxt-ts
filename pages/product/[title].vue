@@ -4,10 +4,11 @@
       <div class="w-full lg:container mx-auto mt-4 mb-8">
         <div class="bg-white shadow-sm rounded p-8">
           <div class="flex-col lg:flex-row lg:flex items-start justify-between gap-4">
+<!--            product image start here-->
             <div class="mb-6 ">
               <div class="flex w-full">
                 <div class="flex flex-col mr-4"  >
-                  <div class=" border p-1 rounded " v-for="(singleProducts, index) in singleProduct.images" :key="index" v-loading="isLoading">
+                  <div class=" border p-1 mb-2 rounded " v-for="(singleProducts, index) in singleProduct.images" :key="index" v-loading="isLoading">
                     <img class=" h-[60px]  lazyloaded" :src="singleProducts">
                   </div>
                 </div>
@@ -16,6 +17,8 @@
                 </div>
               </div>
             </div>
+<!--            product image End here-->
+<!--            product Details start here-->
             <div class="lg:w-3/5 full">
               <div class="text-left ">
                 <h1 class="mb-2 text-lg font-semibold bg-primary text-white p-3">
@@ -116,6 +119,7 @@
                     </a>
                   </div>
                 </div>
+<!--                Social media share start here-->
                 <div class=" mt-4">
                   <div class="">
                     <div class="text-black my-2">Share:</div>
@@ -157,9 +161,11 @@
                     </div>
                   </div>
                 </div>
+<!--                Social media share End here-->
               </div>
             </div>
           </div>
+<!--          product Details End here-->
         </div>
       </div>
     </section>
@@ -189,11 +195,11 @@
                 <div class="location opacity-70"></div>
                 <div class="text-center border rounded p-2 mt-3">
                   <div class="rating">
-                    <i class="fa fa-star active"></i>
-                    <i class="fa fa-star active"></i>
-                    <i class="fa fa-star active"></i>
-                    <i class="fa fa-star active"></i>
-                    <i class="fa fa-star active"></i>
+                    <icon color="red" name="mdi:star"></icon>
+                    <icon color="red" name="mdi:star"></icon>
+                    <icon color="red" name="mdi:star"></icon>
+                    <icon color="red" name="mdi:star"></icon>
+                    <icon color="red" name="mdi:star-half-full"></icon>
                   </div>
                   <div class="opacity-60 text-lg">(0 customer reviews)</div>
                 </div>
@@ -310,10 +316,8 @@ function decrement() {
   return quantity.value * price.value ;
 }
 
-import TabsPaneContext  from 'element-plus'
 const activeName = ref('first')
 const handleClick = (tab, event) => {
-  console.log(tab, event)
 }
 const {
   bestProducts,

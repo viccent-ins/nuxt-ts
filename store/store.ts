@@ -22,6 +22,7 @@ export const useStores = defineStore('store', {
         auth: false,
         server: 'http://127.0.0.1:8000/',
         addToCarts: <any>[],
+        compareProducts: <any>[],
       }
     },
     actions: {
@@ -62,8 +63,19 @@ export const useStores = defineStore('store', {
         const item = this.addToCarts.find((item: any) => item.id === id);
         if (item.quantity > 1) item.quantity -= 1;
       },
-
+      addCompareProduct(param: any) {
+        const item = this.compareProducts.find((item: any) => item.id === param.id);
+        if (item) return;
+        let elements = this.compareProducts;
+        if (elements.includes(param)) return;
+        if (this.compareProducts.length > 3)  return;
+        this.compareProducts.push(param)
+      },
+      resetCompare () {
+        this.compareProducts = [];
+      }
     },
+    
     getters: {
       userInfo: (state) => state.user,
       isAuth: (state) => {

@@ -23,8 +23,21 @@ export default function useUserBuyActivity() {
     const decreaseQty = (id: number) => {
         stores.decreaseQty(id);
     };
+    const compareProduct = (object: any) => {
+        const { id, title, image, price, total } = object;
+        let param = { 
+            id,
+            title,
+            image,
+            price,
+            total,
+            quantity:1,
+        };
+        stores.addCompareProduct(param);
+    };
     return {
         AddToCart,
         removeCart,
+        compareProduct,
     }
 }

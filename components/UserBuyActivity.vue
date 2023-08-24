@@ -5,7 +5,7 @@
       <Icon name="material-symbols:favorite-outline-rounded" size="20px"/>
     </a>
     <a href="#" class="bg-white rounded-full my-2 p-2">
-      <Icon name="material-symbols:sync-outline" size="20px"/>
+      <Icon name="material-symbols:sync-outline" size="20px" @click="compareProduct(prop.Product)"/>
     </a>
     <a href="#" class="bg-white rounded-full p-2" @click="AddToCart(prop.Product)">
       <Icon name="material-symbols:shopping-cart-outline" size="20px"/>
@@ -21,7 +21,10 @@
       required: true
     }
   });
-  const { AddToCart } = useUserBuyActivity();
+  const {
+    AddToCart,
+    compareProduct,
+    } = useUserBuyActivity();
 </script>
 <style scoped>
 

@@ -3,12 +3,14 @@ import { useStores } from '~/store/store';
 import { storeToRefs } from "pinia";
 
 export default function useProductList() {
-    const products = ref([]);
-    const featureProducts = ref([]);
-    const bestProducts = ref([]);
-    const beautyHealthProducts = ref([]);
-    const womenClothProducts = ref([]);
-    const computerAccessoriesProducts = ref([]);
+    const Data = reactive({
+       Products: [],
+       FeatureProducts: [],
+       BestProducts: [],
+       HealthProducts: [],
+       WomenProducts: [],
+       AccessoryProducts: [],
+    });
     const {apiServer} = storeToRefs(useStores());
     const {isLoading, ruleFormRef} = useVariable();
 
@@ -16,7 +18,7 @@ export default function useProductList() {
         isLoading.value = true;
         await axios.get(apiServer.value + '/goods/lists?category_id=69')
             .then(response => {
-                products.value = response.data.data.data;
+                Data.Products = response.data.data.data;
             }).catch((error) => {
                 console.log(error);
             });
@@ -27,7 +29,7 @@ export default function useProductList() {
         isLoading.value = true;
         await axios.get(apiServer.value + '/goods/seckillList')
             .then(response => {
-                featureProducts.value = response.data.data.data;
+                Data.FeatureProducts = response.data.data.data;
 
             }).catch((error) => {
                 console.log(error);
@@ -40,7 +42,7 @@ export default function useProductList() {
         isLoading.value = true;
         await axios.get(apiServer.value + '/goods/lists?category_id=44&page=1')
             .then(response => {
-                bestProducts.value = response.data.data.data;
+                Data.BestProducts = response.data.data.data;
 
             }).catch((error) => {
                 console.log(error);
@@ -52,7 +54,7 @@ export default function useProductList() {
         isLoading.value = true;
         await axios.get(apiServer.value + '/goods/lists?page=1&goods_ids')
             .then(response => {
-                beautyHealthProducts.value = response.data.data.data;
+                Data.HealthProducts = response.data.data.data;
             }).catch((error) => {
                 console.log(error);
             });
@@ -60,23 +62,24 @@ export default function useProductList() {
     }
     getbeautyHealthProducts();
 
-    const getwomenClothProducts = async () => {
+    const getWomenClothProducts = async () => {
         isLoading.value = true;
         await axios.get(apiServer.value + '/goods/lists?category_id=73&page=1')
             .then(response => {
-                womenClothProducts.value = response.data.data.data;
+                Data.WomenProducts = response.data.data.data;
 
             }).catch((error) => {
                 console.log(error);
             });
         isLoading.value = false;
     }
-    getwomenClothProducts();
+    getWomenClothProducts();
     const getcomputerAccessoriesProducts = async () => {
         isLoading.value = true;
         await axios.get(apiServer.value + '/goods/lists?category_id=69&page=1')
             .then(response => {
-                computerAccessoriesProducts.value = response.data.data.data;
+                Data.AccessoryProducts = response.data.data.data;
+                console.log(Data.AccessoryProducts)
 
             }).catch((error) => {
                 console.log(error);
@@ -86,12 +89,7 @@ export default function useProductList() {
     getcomputerAccessoriesProducts();
 
     return {
-        products,
-        featureProducts,
-        bestProducts,
-        beautyHealthProducts,
-        womenClothProducts,
-        computerAccessoriesProducts,
         isLoading,
+        Data,
     }
 }

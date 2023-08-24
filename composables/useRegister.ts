@@ -11,7 +11,7 @@ export default function useRegister() {
 
         mobile: '',
         password: '',
-        code: '',
+        code: '1234',
     });
     const router = useRouter();
     const { apiServer } = storeToRefs(useStores());

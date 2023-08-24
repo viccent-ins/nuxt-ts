@@ -43,12 +43,69 @@ export default defineNuxtConfig({
         name: 'English(US)',
         iso: 'en-US',
         file: 'en-US.json',
+        flag: 'https://wal-marting.com/public/assets/img/flags/en.png'
       },
       {
-        code: 'km-KH',
-        name: 'ភាសាខ្មែរ',
-        iso: 'km-KH',
-        file: 'km-KH.json',
+        code: 'in-HN',
+        name: 'India',
+        iso: 'in-HN',
+        file: 'in-HN.json',
+      },
+      {
+        code: 'bn-BN',
+        name: 'Bangla',
+        iso: 'bn-BN',
+        file: 'bn-BN.json',
+      },
+      {
+        code: 'sa-AR',
+        name: 'Arabic',
+        iso: 'sa-AR',
+        file: 'sa-AR.json',
+      },
+      {
+        code: 'ch-ZH',
+        name: '中文',
+        iso: 'ch-ZH',
+        file: 'ch-ZH.json',
+      },
+
+      {
+        code: 'ja-JA',
+        name: '日本語',
+        iso: 'ja-JA',
+        file: 'ja-JA.json',
+      },
+      {
+        code: 'kr-KO',
+        name: '한국',
+        iso: 'kr-KO',
+        file: 'kr-KO.json',
+      },
+      {
+        code: 'hk-HK',
+        name: '中文繁体',
+        iso: 'hk-HK',
+        file: 'hk-HK.json',
+      },
+      {
+        code: 'tr-TR',
+        name: 'Turkish',
+        iso: 'tr-TR',
+        file: 'tr-TR.json',
+      },
+      {
+        code: 'ma-MS',
+        name: 'Malay',
+        iso: 'ma-MS',
+        file: 'ma-MS.json',
+      },
+
+      {
+        code: 'pt-PT',
+        name: 'Portuguese',
+        iso: 'pt-PT',
+        file: 'pt-PT.json',
       },
     ],
     defaultLocale: 'en-US',

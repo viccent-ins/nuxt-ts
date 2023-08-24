@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class=" w-full p-4">
-      <div class="flex-wrap flex justify-around" >
+      <div class="flex-wrap flex " >
         <div v-for="(product, index) in relatedProducts" :key="index" style="width: 290px;" v-loading="isLoading">
           <div>
             <div class="carousel-box mr-4">
@@ -17,17 +17,7 @@
                   <nuxt-link :to="`/product/${ product.title.replace(/\//g, '-') }?product_id=${product.id}&cat_ids=${product.category_ids}`" >
                     <img class="w-full  h-[210px]  lazyloaded" :src="product.image" :alt="product.title">
                   </nuxt-link>
-                  <div class="absolute top-0 right-0 cartList-icon flex-col flex ">
-                    <a href="#" class="bg-white rounded-full  mt-2 p-2" >
-                      <Icon name="material-symbols:favorite-outline-rounded" size="20px"/>
-                    </a>
-                    <a href="#" class="bg-white rounded-full my-2 p-2">
-                      <Icon name="material-symbols:sync-outline" size="20px"/>
-                    </a>
-                    <a href="#" class="bg-white rounded-full p-2">
-                      <Icon name="material-symbols:shopping-cart-outline" size="20px"/>
-                    </a>
-                  </div>
+                  <UserBuyActivity/>
                 </div>
                 <div class="p-3">
                   <div class="text-lg">
@@ -47,6 +37,7 @@
 </template>
 <script setup>
 import useRelatedProduct from "~/composables/useRelatedProduct";
+import UserBuyActivity from "~/components/UserBuyActivity.vue";
 const {
   relatedProducts,
   isLoading

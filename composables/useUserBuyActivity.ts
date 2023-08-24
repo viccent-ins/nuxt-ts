@@ -1,9 +1,7 @@
-import { storeToRefs } from "pinia";
 import { useStores } from "~/store/store";
 
 export default function useUserBuyActivity() {
     const stores = useStores();
-    const { addToCarts } = storeToRefs(useStores());
     const AddToCart = (object: any) => {
         const { id, title, image, price, total } = object;
         let param = { 
@@ -16,17 +14,17 @@ export default function useUserBuyActivity() {
         };
         stores.addToCart(param);
     };
-    const removeIndex = (param: any) => {
+    const removeCart = (param: any) => {
         stores.removeCart(param);
     };
-    const increaseQty = () => {
-
+    const increaseQty = (id: number) => {
+        stores.increaseQty(id);
     };
-    const decreaseQty = () => {
-
+    const decreaseQty = (id: number) => {
+        stores.decreaseQty(id);
     };
     return {
         AddToCart,
-        removeIndex,
+        removeCart,
     }
 }

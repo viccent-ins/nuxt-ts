@@ -21,6 +21,7 @@ export const useStores = defineStore('store', {
         },
         auth: false,
         server: 'http://127.0.0.1:8000/',
+        addToCarts: <any>[],
       }
     },
     actions: {
@@ -41,6 +42,27 @@ export const useStores = defineStore('store', {
       updateAuth(auth: boolean) {
         this.auth = auth;
       },
+      addToCart(param: any) {
+        const item = this.addToCarts.find((item: any) => item.id === param.id);
+        if (item) {
+          item.quantity += 1;
+        } else {
+          this.addToCarts.push(param)
+        };
+        
+      },
+      removeCart(element: any) {
+        return this.addToCarts.filter((item: any) => item.id !== element.id);
+      },
+      increaseQty(id: number) {
+        const item = this.addToCarts.find((item: any) => item.id === id);
+        if (item) item.quantity += 1;
+      },
+      decreaseQty(id: number) {
+        const item = this.addToCarts.find((item: any) => item.id === id);
+        if (item.quantity > 1) item.quantity -= 1;
+      },
+
     },
     getters: {
       userInfo: (state) => state.user,

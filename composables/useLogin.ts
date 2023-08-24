@@ -21,7 +21,7 @@ export default function useLogin () {
                 .then((response) => {
                     // redirect to Home page
                     localStorage.setItem("token", response.data.token);
-                        router.push("/");
+                        // router.push("/");
                     console.log(response)
                 })
                 .catch((error) => {

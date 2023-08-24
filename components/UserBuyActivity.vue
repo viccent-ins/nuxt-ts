@@ -21,7 +21,7 @@
       required: true
     }
   });
-  const { AddToCart } = useUserBuyActivity();
+  const { AddToCart, removeIndex } = useUserBuyActivity();
 </script>
 <style scoped>
 

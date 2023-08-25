@@ -4,11 +4,10 @@
     <div class="w-60 position-static hidden lg:block">
       <div class="aiz-category-menu bg-white rounded  shadow-sm">
         <!-- Category and SubCategory start here -->
-        <div
-            class="py-3 px-4 bg-red-300 rounded-t-lg all-category relative text-left">
-          <span class="font-semibold text-lg mr-3">Categories</span>
-          <a href="https://wal-marting.com/categories" class="text-reset">
-            <span class="">See All &gt;</span>
+        <div  class="py-3 px-4 bg-red-300 rounded-t-lg all-category relative text-left flex items-center justify-between">
+          <span class="font-semibold text-lg mr-3">{{ $t('categories') }}</span>
+          <a href="https://wal-marting.com/categories" class="text-sm">
+            <span class="">{{ $t('see_all') }}&gt;</span>
           </a>
         </div>
         <ul class="list-unstyled categories py-1 xl:py-2 mb-0 text-left">

@@ -56,14 +56,14 @@
                     <el-button type="primary" :icon="Plus" circle @click="increaseCartQty(addToCart.id)"/>
                   </div>
                   <div class="text-md font-semibold primary">{{ addToCart.price * addToCart.quantity }}</div>
-                  <el-button :icon="Delete"  circle @click=""></el-button>
+                  <el-button :icon="Delete"  circle @click="removeCart(addToCart.id)"></el-button>
                 </div>
                </div>
             </div>
 
             <div class="px-10 py-4 mb-4 flex justify-between">
-              <span class="font-bold text-sm block ">Sub Total</span>
-              <span class="font-bold text-sm">$21.36</span>
+              <span class="font-bold text-sm block ">{{$t('sub_total')}}</span>
+              <span class="font-bold text-sm"></span>
             </div>
             <div class="flex items-center py-6 justify-between ">
               <div class="order-1 ">
@@ -92,7 +92,6 @@ import { storeToRefs } from "pinia";
 import { useStores } from "~/store/store";
 import useUserBuyActivity from "~/composables/useUserBuyActivity";
 const {
-  addToCart,
   removeCart,
   compareProduct,
   increaseCartQty,

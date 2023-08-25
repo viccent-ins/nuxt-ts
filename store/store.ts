@@ -52,8 +52,8 @@ export const useStores = defineStore('store', {
         };
         
       },
-      removeCart(element: any) {
-        return this.addToCarts.filter((item: any) => item.id !== element.id);
+      removeCart(elementId: number) {
+        this.addToCarts = this.addToCarts.filter((item: any) => item.id !== elementId);
       },
       increaseQty(id: number) {
         const item = this.addToCarts.find((item: any) => item.id === id);

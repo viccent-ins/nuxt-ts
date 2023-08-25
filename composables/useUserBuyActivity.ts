@@ -17,8 +17,8 @@ export default function useUserBuyActivity() {
 
 
     };
-    const removeCart = (param: any) => {
-        stores.removeCart(param);
+    const removeCart = (id: number) => {
+        stores.removeCart(id);
     };
     const increaseCartQty = (id: number) => {
         stores.increaseQty(id);

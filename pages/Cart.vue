@@ -45,7 +45,7 @@
                   <span class="mr-2 ml-0">
                     <img :src="addToCart.image" class="w-60 rounded" alt="addToCart.title">
                   </span>
-                  <span class="text-base  opacity-60">{{ addToCart.title }}</span>
+                  <span class="text-base font-semibold  opacity-60">{{ addToCart.title }}</span>
                 </div>
                 <div class="w-1/2 flex justify-between items-center">
                   <div class="font-semibold">{{ addToCart.price }}</div>
@@ -56,7 +56,7 @@
                     <el-button type="primary" :icon="Plus" circle @click="increaseCartQty(addToCart.id)"/>
                   </div>
                   <div class="text-md font-semibold primary">{{ addToCart.price * addToCart.quantity }}</div>
-                  <el-button :icon="Delete"  circle @click="removeCart"></el-button>
+                  <el-button :icon="Delete"  circle @click=""></el-button>
                 </div>
                </div>
             </div>
@@ -92,13 +92,12 @@ import { storeToRefs } from "pinia";
 import { useStores } from "~/store/store";
 import useUserBuyActivity from "~/composables/useUserBuyActivity";
 const {
-  AddToCart,
+  addToCart,
   removeCart,
   compareProduct,
   increaseCartQty,
   decreaseCartQty
 } = useUserBuyActivity();
-
 const { addToCarts } = storeToRefs(useStores());
 console.log(addToCarts)
 

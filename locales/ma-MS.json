@@ -4,5 +4,8 @@
   "register" : "mendaftar",
   "compare" : "Bandingkan",
   "wishlist": "Senarai hajat",
-  "cart": "troli"
+  "cart": "troli",
+  "search_product": "Saya belanja....",
+  "categories": "Kategori",
+  "see_all": "Lihat semua"
 }

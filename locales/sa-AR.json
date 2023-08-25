@@ -1,5 +1,13 @@
 {
   "online_service": "خدمات عبر الانترنت",
   "login": "تسجيل الدخول",
-  "register" : "يسجل"
+  "register" : "يسجل",
+  "compare" : "يقارن",
+  "wishlist": "قائمة الرغبات",
+  "cart": "عربة التسوق",
+  "search_product": "انا اتسوق لأجل....",
+  "categories": "فئات",
+  "see_all": "اظهار الكل"
 }
+
+

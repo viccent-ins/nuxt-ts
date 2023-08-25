@@ -4,5 +4,8 @@
   "register" : "kayıt olmak",
   "compare" : "Karşılaştırmak",
   "wishlist": "İstek listesi",
-  "cart": "araba"
+  "cart": "araba",
+  "search_product": "Şunun için alışveriş yapıyorum....",
+  "categories": "Kategoriler",
+  "see_all": "Hepsini gör"
 }

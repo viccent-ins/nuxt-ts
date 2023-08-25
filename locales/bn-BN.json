@@ -4,5 +4,8 @@
   "register" : "নিবন্ধন",
   "compare" : "তুলনা করা",
   "wishlist": "ইচ্ছেতালিকা",
-  "cart": "কার্ট"
+  "cart": "কার্ট",
+  "search_product": "আমি কেনাকাটা করি....",
+  "categories" : "ক্যাটাগরি",
+  "see_all": "সবগুলো দেখ"
 }

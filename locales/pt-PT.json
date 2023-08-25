@@ -4,5 +4,8 @@
   "register" : "registro",
   "compare" : "Comparar",
   "wishlist": "Lista de Desejos",
-  "cart": "carrinho"
+  "cart": "carrinho",
+  "search_product": "Estou comprando....",
+  "categories": "Categories",
+  "see_all": "Ver tudo"
 }

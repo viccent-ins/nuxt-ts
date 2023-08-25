@@ -4,5 +4,8 @@
     "register" : "Register",
     "compare" : "Compare",
     "wishlist": "Wishlist",
-    "cart": "Cart"
+    "cart": "Cart",
+    "search_product": "I Am shopping for....",
+    "categories": "Categories",
+    "see_all": "See All"
 }

@@ -4,5 +4,9 @@
   "register" : "登记",
   "compare" : "比较",
   "wishlist": "愿望清单",
-  "cart": "大车"
+  "cart": "大车",
+  "search_product": "我是来买什么的....",
+  "categories": "类别",
+  "see_all": "查看全部"
+
 }

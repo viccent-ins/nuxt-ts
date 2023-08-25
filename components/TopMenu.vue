@@ -2,7 +2,7 @@
   <div class="bg-white">
     <div class=" border-b-[1px]">
       <div class="w-full lg:container flex items-center justify-between py-3 mx-auto px-4">
-        <div class="menu-left lg:block w-full lg:w-4/5 justify-between flex">
+        <div class="menu-left w-full lg:w-4/5 justify-between lg:justify-start items-center flex">
 <!--          <el-select v-model="value" placeholder="Select" class="border-0">-->
 <!--            <el-option-->
 <!--                v-for="item in cities"-->
@@ -15,16 +15,20 @@
 <!--        </span>-->
 <!--            </el-option>-->
 <!--          </el-select>-->
-          <el-select v-model="selectedLocale" class="border-0" size="large">
-            <el-option v-for="(lang, index) in locales" :key="index" :value="lang.code">
-              <div class="flex gap-2 items-center">
-                <span>{{ lang.name }} </span>
-                <img class="inline-block w-[15px] h-[10px]" :src="lang.flag" alt="Country flag"/>
-              </div>
-            </el-option>
-          </el-select>
-          <Icon :name="flagIcon" class="primary md:text-2xl lg:text-2xl text-xl"/>
-          <a class="ml-3" href="#">{{ $t('online_service') }}</a>
+          <div class="relative">
+            <el-select v-model="selectedLocale" class="border-0" size="large">
+              <el-option v-for="(lang, index) in locales" :key="index" :label="lang.name" :value="lang.code" >
+                <div class="flex w-full justify-between items-center">
+                  <span>{{ lang.name }} </span>
+                  <img class="inline-block w-[15px] h-[10px]" :src="lang.flag" alt="Country flag"/>
+                </div>
+              </el-option>
+            </el-select>
+            <Icon :name="flagIcon" class="absolute left-[135px] top-1/2 mt-[-9px] "/>
+          </div>
+          <div>
+            <a class="ml-3" href="#">{{ $t('online_service') }}</a>
+          </div>
         </div>
         <div class="menu-right w-1/5 justify-end items-center  hidden lg:flex">
           <nuxt-link  to="/login">{{ $t('login') }}</nuxt-link>
@@ -46,31 +50,37 @@
                   v-model="search"
                   class="w-50 m-2"
                   size="large"
-                  placeholder="Please Input"
+                  :placeholder="$t('search_product')"
                   :suffix-icon="Search"
               />
             </form>
           </div>
           <div class="checkingList hidden lg:flex justify-between mr-4">
-            <div id="compare" class="flex items-center ">
-              <Icon name="material-symbols:sync-outline" size="30px"/>
-              <nuxt-link to="/compare">
-                <span class=" bg-primary p-1 ml-12 flex items-center justify-center rounded-full h-5 w-5 text-white">0</span>
-                <p>{{ $t('compare') }}</p>
+            <div id="compare" >
+              <nuxt-link to="/compare" class="flex items-center ">
+                <Icon name="material-symbols:sync-outline" size="30px"/>
+                <span>
+                    <span class=" bg-primary p-1 ml-12 flex items-center justify-center rounded-full h-5 w-5 text-white">0</span>
+                    <p>{{ $t('compare') }}</p>
+                </span>
               </nuxt-link>
             </div>
-            <div id="wishlist" class="flex items-center ml-3">
-              <Icon name="material-symbols:favorite-outline-rounded" size="30px"/>
-              <nuxt-link to="/user-profile/wishlist" >
-                <span class=" bg-primary p-1 ml-9 flex items-center justify-center rounded-full h-5 w-5 text-white">0</span>
-                <p>{{ $t('wishlist') }}</p>
+            <div id="wishlist" >
+              <nuxt-link to="/user-profile/wishlist" class="flex items-center ml-3" >
+                <Icon name="material-symbols:favorite-outline-rounded" size="30px"/>
+                <span>
+                  <span class=" bg-primary p-1 ml-9 flex items-center justify-center rounded-full h-5 w-5 text-white">0</span>
+                  <p>{{ $t('wishlist') }}</p>
+                </span>
               </nuxt-link>
             </div>
-            <div id="cart" class="flex items-center ml-3">
-              <Icon name="material-symbols:shopping-cart-outline" size="30px"/>
-              <nuxt-link to="/cart">
-                <span class=" bg-primary  p-1 ml-6 flex items-center justify-center rounded-full h-5 w-5 text-white">0</span>
-                <p>{{ $t('cart') }}Cart</p>
+            <div id="cart">
+              <nuxt-link to="/cart"  class="flex items-center ml-3">
+                <Icon name="material-symbols:shopping-cart-outline" size="30px"/>
+               <span>
+                  <span class=" bg-primary  p-1 ml-6 flex items-center justify-center rounded-full h-5 w-5 text-white">0</span>
+                  <p>{{ $t('cart') }}</p>
+               </span>
               </nuxt-link>
             </div>
           </div>
@@ -97,13 +107,27 @@ const value = ref();
 
 
 const flagIcon = computed(() => {
-  let icon = 'flag:gb-4x3';
-  if (selectedLocale.value === 'ch-ZH') {
+  let icon = 'flag:us-4x3';
+  if (selectedLocale.value === 'en-US') {
+    icon = 'flag:us-4x3';
+  } else if (selectedLocale.value === 'in-HN') {
+    icon = 'flag:in-4x3';
+  } else if (selectedLocale.value === 'bn-BN') {
+    icon = 'flag:bd-4x3';
+  }else if (selectedLocale.value === 'ch-ZH') {
     icon = 'flag:cn-4x3';
-  } else if (selectedLocale.value === 'th-TH') {
-    icon = 'flag:th-4x3';
-  } else if (selectedLocale.value === 'ch-CH') {
-    icon = 'flag:cn-4x3';
+  }else if (selectedLocale.value === 'sa-AR') {
+    icon = 'flag:sa-4x3';
+  }else if (selectedLocale.value === 'kr-KO') {
+    icon = 'flag:kr-4x3';
+  }else if (selectedLocale.value === 'pt-PT') {
+    icon = 'flag:pt-4x3';
+  }else if (selectedLocale.value === 'tr-TR') {
+    icon = 'flag:tr-4x3';
+  }else if (selectedLocale.value === 'ja-JA') {
+    icon = 'flag:jp-4x3';
+  }else if (selectedLocale.value === 'ma-MS') {
+    icon = 'flag:ma-4x3';
   }
   return icon;
 });

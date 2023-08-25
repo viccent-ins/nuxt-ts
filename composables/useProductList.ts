@@ -19,6 +19,7 @@ export default function useProductList() {
         await axios.get(apiServer.value + '/goods/lists?category_id=69')
             .then(response => {
                 Data.Products = response.data.data.data;
+                console.log(Data.Products)
             }).catch((error) => {
                 console.log(error);
             });
@@ -79,15 +80,12 @@ export default function useProductList() {
         await axios.get(apiServer.value + '/goods/lists?category_id=69&page=1')
             .then(response => {
                 Data.AccessoryProducts = response.data.data.data;
-                console.log(Data.AccessoryProducts)
-
             }).catch((error) => {
                 console.log(error);
             });
         isLoading.value = false;
     }
     getcomputerAccessoriesProducts();
-
     return {
         isLoading,
         Data,

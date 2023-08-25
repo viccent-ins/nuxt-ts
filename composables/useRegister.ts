@@ -22,8 +22,6 @@ export default function useRegister() {
                 localStorage.setItem('users', JSON.stringify(registerRequest))
                 // redirect to Login page
                router.replace("/login");
-
-
             })
             .catch((err) => console.log("err", err));
         isProcessing.value = false;

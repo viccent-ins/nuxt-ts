@@ -112,7 +112,7 @@
                           :to="`/product/${ product.title.replace(/\//g, '-') }?product_id=${product.id}&cat_ids=${product.category_ids}`">
                         <img class="w-full  h-[210px]  lazyloaded" :src="product.image" :alt="product.title">
                       </nuxt-link>
-                      <UserBuyActivity/>
+                      <UserBuyActivity :Product="product"/>
                     </div>
                     <div class="p-3">
                       <div class="text-lg">
@@ -159,7 +159,7 @@
                             :to="`/product/${ product.title.replace(/\//g, '-') }?product_id=${product.id}&cat_ids=${product.category_ids}`">
                           <img class="w-full  h-[210px]  lazyloaded" :src="product.image" :alt="product.title">
                         </nuxt-link>
-                        <UserBuyActivity/>
+                        <UserBuyActivity :Product="product"/>
                       </div>
                       <div class="p-3">
                         <div class="text-lg">
@@ -205,7 +205,7 @@
                           :to="`/product/${ product.title.replace(/\//g, '-') }?product_id=${product.id}&cat_ids=${product.category_ids}`">
                         <img class="w-full  h-[210px]  lazyloaded" :src="product.image" :alt="product.title">
                       </nuxt-link>
-                      <UserBuyActivity/>
+                      <UserBuyActivity :Product="product"/>
                     </div>
                     <div class="p-3">
                       <div class="text-lg">
@@ -250,7 +250,7 @@
                           :to="`/product/${ product.title.replace(/\//g, '-') }?product_id=${product.id}&cat_ids=${product.category_ids}`">
                         <img class="w-full  h-[210px]  lazyloaded" :src="product.image" :alt="product.title">
                       </nuxt-link>
-                      <UserBuyActivity/>
+                      <UserBuyActivity :Product="product"/>
                     </div>
                     <div class="p-3">
                       <div class="text-lg">

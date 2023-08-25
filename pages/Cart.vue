@@ -50,9 +50,9 @@
                 <div class="w-1/2 flex justify-between items-center">
                   <div class="font-semibold">{{ addToCart.price }}</div>
                   <div class="font-semibold">$0.00</div>
-                  <div class="flex items-center gap-3">
+                  <div class="flex items-center gap-2">
                     <el-button type="primary" :icon="Minus" circle @click="decreaseCartQty(addToCart.id)" />
-                    <el-input style="width: 100px" type="number" name="quantity" v-model="addToCart.quantity"> </el-input>
+                    <el-input style="width: 100px" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');" v-model.number="addToCart.quantity"> </el-input>
                     <el-button type="primary" :icon="Plus" circle @click="increaseCartQty(addToCart.id)"/>
                   </div>
                   <div class="text-md font-semibold primary">{{ addToCart.price * addToCart.quantity }}</div>

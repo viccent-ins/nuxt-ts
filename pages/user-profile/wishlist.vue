@@ -21,7 +21,7 @@
                 <span class="font-bold text-red-600">{{ addToWishlist.price }}</span>
               </div>
               <h3 class="font-medium text-truncate text-lg mb-0 h-[55px]">
-                <h4>{{ addToWishlist.title }}</h4>
+                {{ addToWishlist.title }}
               </h3>
             </div>
             <hr>

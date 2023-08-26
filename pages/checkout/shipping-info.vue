@@ -25,11 +25,11 @@
               <el-form-item label="Receiver Name" prop="name">
                 <el-input v-model="ruleForm.name"  placeholder="Enter your Name"/>
               </el-form-item>
-              <el-form-item label="Phone Number" prop="phone">
-                <el-input v-model="ruleForm.phone" placeholder="Enter Your Phone Number" />
+              <el-form-item label="Phone Number" prop="phoneNumber">
+                <el-input v-model="ruleForm.phoneNumber" placeholder="Enter Your Phone Number" />
               </el-form-item>
               <el-form-item label="Country" prop="country">
-                <el-input v-model="ruleForm.country" />
+                <el-input v-model="ruleForm.region" />
               </el-form-item>
               <el-form-item label="State Name" prop="state">
                 <el-input v-model="ruleForm.state" />
@@ -58,8 +58,8 @@
             <el-radio  />
             <div class=" ">
               <p>{{ ruleForm.name  }}</p>
-              <p>{{ ruleForm.phone }}</p>
-              <p>{{ ruleForm.country }}</p>
+              <p>{{ ruleForm.phoneNumber }}</p>
+              <p>{{ ruleForm.region }}</p>
               <p>{{ ruleForm.state }}</p>
               <p>{{ ruleForm.city }}</p>
               <p>{{ ruleForm.address }}</p>
@@ -72,7 +72,6 @@
             </div>
           </div>
         </div>
-
       </div>
       <div class="flex items-center py-6 justify-between ">
         <div class="order-1 ">
@@ -94,8 +93,8 @@
 const checkOutFormPopUP = ref(false)
 const ruleForm =  reactive({
   name:'',
-  phone:'',
-  country: '',
+  phoneNumber:'',
+  region: '',
   state: '',
   city: '',
   address:'',

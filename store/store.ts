@@ -23,11 +23,12 @@ export const useStores = defineStore('store', {
         server: 'http://127.0.0.1:8000/',
         addToCarts: <any>[],
         compareProducts: <any>[],
+        addToWishlists: <any>[],
       }
     },
     actions: {
       updateLocale(lang: string) {
-          this.locale = lang;
+        this.locale = lang;
       },
       updateAuthorisation(authorisation: IAuthorisation) {
         this.authorisation = authorisation;
@@ -36,7 +37,7 @@ export const useStores = defineStore('store', {
         this.authorisation.token = authorisation;
         this.auth = false;
       },
-  
+
       updateUser(user: IUser) {
         this.user = user;
       },
@@ -49,8 +50,17 @@ export const useStores = defineStore('store', {
           item.quantity += 1;
         } else {
           this.addToCarts.push(param)
-        };
-        
+        }
+
+      },
+      addToWishlist(param: any) {
+        const item = this.addToWishlists.find((item: any) => item.id === param.id);
+        if (item) {
+          item.quantity += 1;
+        } else {
+          this.addToWishlists.push(param)
+        }
+
       },
       removeCart(elementId: number) {
         this.addToCarts = this.addToCarts.filter((item: any) => item.id !== elementId);
@@ -68,12 +78,13 @@ export const useStores = defineStore('store', {
         if (item) return;
         let elements = this.compareProducts;
         if (elements.includes(param)) return;
-        if (this.compareProducts.length > 3)  return;
+        if (this.compareProducts.length > 2) return;
         this.compareProducts.push(param)
       },
-      resetCompare () {
+      resetCompare() {
         this.compareProducts = [];
-      }
+      },
+
     },
     
     getters: {
@@ -88,7 +99,6 @@ export const useStores = defineStore('store', {
       apiServer: (state) => {
         return 'https://sc2houduan.bitlandweb.com/addons/shopro';
       },
-  
     },
     persist: true,
   })

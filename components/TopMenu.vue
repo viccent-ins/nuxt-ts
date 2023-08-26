@@ -60,7 +60,7 @@
               <nuxt-link to="/compare" class="flex items-center ">
                 <Icon name="material-symbols:sync-outline" size="30px"/>
                 <span>
-                    <span class=" bg-primary p-1 ml-12 flex items-center justify-center rounded-full h-5 w-5 text-white">0</span>
+                    <span class=" bg-primary p-1 ml-12 flex items-center justify-center rounded-full h-5 w-5 text-white">{{ stores.compareProducts.length }}</span>
                     <p>{{ $t('compare') }}</p>
                 </span>
               </nuxt-link>
@@ -69,7 +69,7 @@
               <nuxt-link to="/user-profile/wishlist" class="flex items-center ml-3" >
                 <Icon name="material-symbols:favorite-outline-rounded" size="30px"/>
                 <span>
-                  <span class=" bg-primary p-1 ml-9 flex items-center justify-center rounded-full h-5 w-5 text-white">0</span>
+                  <span class=" bg-primary p-1 ml-9 flex items-center justify-center rounded-full h-5 w-5 text-white">{{ stores.addToWishlists.length }}</span>
                   <p>{{ $t('wishlist') }}</p>
                 </span>
               </nuxt-link>
@@ -78,7 +78,7 @@
               <nuxt-link to="/cart"  class="flex items-center ml-3">
                 <Icon name="material-symbols:shopping-cart-outline" size="30px"/>
                <span>
-                  <span class=" bg-primary  p-1 ml-6 flex items-center justify-center rounded-full h-5 w-5 text-white">0</span>
+                  <span class=" bg-primary  p-1 ml-6 flex items-center justify-center rounded-full h-5 w-5 text-white">{{ stores.addToCarts.length }}</span>
                   <p>{{ $t('cart') }}</p>
                </span>
               </nuxt-link>
@@ -90,7 +90,10 @@
 </template>
 <script setup>
 import { Search } from '@element-plus/icons-vue'
+import { useStores } from "~/store/store";
 const { locales, locale, setLocale } = useI18n();
+const stores = useStores();
+
 const localePath = useLocalePath();
 const selectedLocale = computed({
   get: () => locale.value, set: (value) => {
@@ -101,11 +104,10 @@ const logoImage = {
   src:'/images/shopro.png',
   alt:"walmart-logo"
 }
+
 const logoWidth= "maxWidth:100%; height:40px"
 const search = ref('');
 const value = ref();
-
-
 const flagIcon = computed(() => {
   let icon = 'flag:us-4x3';
   if (selectedLocale.value === 'en-US') {

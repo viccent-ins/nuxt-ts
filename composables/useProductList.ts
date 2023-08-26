@@ -19,7 +19,6 @@ export default function useProductList() {
         await axios.get(apiServer.value + '/goods/lists?category_id=69')
             .then(response => {
                 Data.Products = response.data.data.data;
-                console.log(Data.Products)
             }).catch((error) => {
                 console.log(error);
             });
@@ -31,7 +30,6 @@ export default function useProductList() {
         await axios.get(apiServer.value + '/goods/seckillList')
             .then(response => {
                 Data.FeatureProducts = response.data.data.data;
-
             }).catch((error) => {
                 console.log(error);
             });
@@ -44,7 +42,6 @@ export default function useProductList() {
         await axios.get(apiServer.value + '/goods/lists?category_id=44&page=1')
             .then(response => {
                 Data.BestProducts = response.data.data.data;
-
             }).catch((error) => {
                 console.log(error);
             });
@@ -68,7 +65,6 @@ export default function useProductList() {
         await axios.get(apiServer.value + '/goods/lists?category_id=73&page=1')
             .then(response => {
                 Data.WomenProducts = response.data.data.data;
-
             }).catch((error) => {
                 console.log(error);
             });

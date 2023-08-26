@@ -49,7 +49,7 @@
                 <Icon name="material-symbols:sync-outline" size="30px"/>
                 <span>
                     <span class=" bg-primary p-1 ml-12 flex items-center justify-center rounded-full h-5 w-5 text-white">{{ stores.compareProducts.length }}</span>
-                    <p>{{ $t('compare') }}</p>
+                    <span>{{ $t('compare') }}</span>
                 </span>
               </nuxt-link>
             </div>
@@ -58,7 +58,7 @@
                 <Icon name="material-symbols:favorite-outline-rounded" size="30px"/>
                 <span>
                   <span class=" bg-primary p-1 ml-9 flex items-center justify-center rounded-full h-5 w-5 text-white">{{ stores.addToWishlists.length }}</span>
-                  <p>{{ $t('wishlist') }}</p>
+                  <span>{{ $t('wishlist') }}</span>
                 </span>
               </nuxt-link>
             </div>
@@ -67,7 +67,7 @@
                 <Icon name="material-symbols:shopping-cart-outline" size="30px"/>
                <span>
                   <span class=" bg-primary  p-1 ml-6 flex items-center justify-center rounded-full h-5 w-5 text-white">{{ stores.addToCarts.length }}</span>
-                  <p>{{ $t('cart') }}</p>
+                  <span>{{ $t('cart') }}</span>
                </span>
               </nuxt-link>
             </div>

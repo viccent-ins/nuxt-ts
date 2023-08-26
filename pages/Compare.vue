@@ -52,14 +52,13 @@
               <div class="border-t py-3">
                 <h5 class="text-lg font-semibold primary px-2">{{ compareProduct.price }}$</h5>
               </div>
-              <nuxt-link to="#" class="border-t py-3 text-center" >
-                <el-button type="primary" :icon="Handbag" size="large">Add to cart</el-button>
-              </nuxt-link>
+              <div class="border-t py-3 text-center" >
+                <el-button type="primary" :icon="Handbag" size="large"  @click="addToCart(prop.Product)">Add to cart</el-button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 </div>
@@ -70,6 +69,15 @@ import {
 } from '@element-plus/icons-vue'
 import { storeToRefs } from "pinia";
 import { useStores } from "~/store/store";
-
+import useUserBuyActivity from "~/composables/useUserBuyActivity";
+const {
+  addToCart
+} = useUserBuyActivity();
 const { compareProducts } = storeToRefs(useStores());
+const prop = defineProps({
+  Product: {
+    type: Object,
+    required: true
+  }
+});
 </script>

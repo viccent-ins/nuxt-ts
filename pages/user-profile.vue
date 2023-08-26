@@ -1,8 +1,8 @@
 <template>
 <div>
-  <div class="container mx-auto p-4">
+  <div class="w-full lg:container mx-auto p-4">
      <div class="flex gap-5 w-full">
-       <div class="basis-1/5">
+       <div class="w-1/4">
          <div class="bg-white shadow rounded-sm ">
            <div class="flex flex-col">
              <div class="user bg-primary rounded-sm">
@@ -18,43 +18,43 @@
                    <li class="p-3 bg-red-200 rounded-sm">
                      <NuxtLink to="/user-profile" class=" flex gap-4 items-center ">
                        <icon name="material-symbols:home-outline-rounded" size="20" color="red"></icon>
-                       <h5 class="font-semibold text-md">Dashboard</h5>
+                       <h5 class="font-semibold text-md ">Dashboard</h5>
                      </NuxtLink>
                    </li>
                    <li class="p-3 hover:bg-red-200 rounded-sm">
                      <NuxtLink to="/user-profile/purchase-history" class=" flex gap-4 items-center ">
                        <icon name="material-symbols:event-note-outline" size="20" color="red"></icon>
-                       <h5 class="font-semibold text-md">Purchase History</h5>
+                       <h5 class="font-semibold text-md ">Purchase History</h5>
                      </NuxtLink>
                    </li>
                    <li class="p-3 hover:bg-red-200 rounded-sm" >
                      <nuxt-link to="/user-profile/refund-request" class=" flex gap-4 items-center ">
                        <icon name="mdi:cash-refund" size="20" color="red"></icon>
-                       <h5 class="font-semibold text-md">Sent Refund Request</h5>
+                       <h5 class="font-semibold text-md ">Sent Refund Request</h5>
                      </nuxt-link>
                    </li>
                    <li class="p-3 hover:bg-red-200 rounded-sm">
                      <nuxt-link to="/user-profile/classified-product" class=" flex gap-4 items-center ">
                        <icon name="mdi:diamond-stone" size="20" color="red"></icon>
-                       <h5 class="font-semibold text-md">Classified Products</h5>
+                       <h5 class="font-semibold text-md ">Classified Products</h5>
                      </nuxt-link>
                    </li>
                    <li class="p-3 hover:bg-red-200 rounded-sm" >
                      <nuxt-link to="/user-profile/wallet" class=" flex gap-4 items-center ">
                        <icon name="ic:sharp-wallet" size="20" color="red"></icon>
-                       <h5 class="font-semibold text-md">My Wallet</h5>
+                       <h5 class="font-semibold text-md ">My Wallet</h5>
                      </nuxt-link>
                    </li>
                    <li class="p-3 hover:bg-red-200 rounded-sm" >
                      <nuxt-link to="/user-profile/support-ticket" class=" flex gap-4 items-center ">
                        <icon name="material-symbols:support-agent" size="20" color="red"></icon>
-                       <h5 class="font-semibold text-md">Support Ticket</h5>
+                       <h5 class="font-semibold text-md ">Support Ticket</h5>
                      </nuxt-link>
                    </li>
                    <li class="p-3 hover:bg-red-200 rounded-sm" >
                      <nuxt-link to="/user-profile/update-profile" class=" flex gap-4 items-center ">
                        <icon name="iconamoon:profile-fill" size="20" color="red"></icon>
-                       <h5 class="font-semibold text-md">Manage Profile</h5>
+                       <h5 class="font-semibold text-md ">Manage Profile</h5>
                      </nuxt-link>
                    </li>
                  </ul>
@@ -66,7 +66,7 @@
            </div>
          </div>
        </div>
-       <div class="basis-4/5">
+       <div class="w-3/4">
           <NuxtPage/>
        </div>
      </div>

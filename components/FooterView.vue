@@ -73,13 +73,13 @@
                 </li>
                 <li class="mb-2">
                   <a class="opacity-50 hover:opacity-100 text-base"
-                     href="https://wal-marting.com/purchase_history">
+                     href="user-profile/purchase-history">
                     Order History
                   </a>
                 </li>
                 <li class="mb-2">
                   <a class="opacity-50 hover:opacity-100 text-reset"
-                     href="https://wal-marting.com/wishlists">
+                     href="user-profile/wishlist">
                     My Wishlist
                   </a>
                 </li>

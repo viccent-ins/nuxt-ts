@@ -3,18 +3,6 @@
     <div class=" border-b-[1px]">
       <div class="w-full lg:container flex items-center justify-between py-3 mx-auto px-4">
         <div class="menu-left w-full lg:w-4/5 justify-between lg:justify-start items-center flex">
-<!--          <el-select v-model="value" placeholder="Select" class="border-0">-->
-<!--            <el-option-->
-<!--                v-for="item in cities"-->
-<!--                :key="item.value"-->
-<!--                :label="item.label"-->
-<!--                :value="item.value"-->
-<!--            >-->
-<!--        <span >-->
-<!--          <img class="inline-block w-[15px] h-[10px]" :src="item.flag" alt="Country flag"/> &nbsp; {{ item.label }}-->
-<!--        </span>-->
-<!--            </el-option>-->
-<!--          </el-select>-->
           <div class="relative">
             <el-select v-model="selectedLocale" class="border-0" size="large">
               <el-option v-for="(lang, index) in locales" :key="index" :label="lang.name" :value="lang.code" >

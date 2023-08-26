@@ -24,13 +24,12 @@
           </div>
           <div class="order-2 block ">
             <el-button type="primary" class="" size="large" @click="resetCompare">Reset compare list</el-button>
-<!--            <button class="btn bg-red-100 hover:bg-red-500 font-bold px-3 py-2 text-primary hover:text-white rounded-md" >Reset compare list</button>-->
           </div>
         </div>
         <div class=" my-4">
-          <div class="flex">
-            <div class="flex flex-col justify-between border ">
-              <div class="border-b py-3">
+          <div class="flex border">
+            <div class="flex flex-col justify-between border-r ">
+              <div class="border-b py-3 h-20">
                 <h5 class="text-lg font-semibold px-2">Name</h5>
               </div>
               <div class=" w-60 h-96 py-3">
@@ -43,9 +42,9 @@
                 <h5 class="text-lg font-semibold px-2"></h5>
               </div>
             </div>
-            <div class="flex flex-col justify-between border justify-center w-full" v-for="(compareProduct , index) in compareProducts" :key="index" >
-              <div class="border-b">
-                <h5 class="py-3 text-lg font-semibold px-2">{{ compareProduct.title }}</h5>
+            <div class="flex flex-col justify-between border w-full" v-for="(compareProduct , index) in compareProducts" :key="index" >
+              <div class="border-b h-20">
+                <h5 class="py-3 text-md font-semibold px-2">{{ compareProduct.title }}</h5>
               </div>
               <div class="w-full py-3 flex items-center">
                 <img class="w-96 h-96  mx-auto  " :src="compareProduct.image" alt="compareProduct.title">
@@ -53,9 +52,9 @@
               <div class="border-t py-3">
                 <h5 class="text-lg font-semibold primary px-2">{{ compareProduct.price }}$</h5>
               </div>
-              <div class="border-t py-3 text-center">
-                <el-button type="primary" :icon="Handbag" size="large" @click="addToCart(prop.Product)">Add to cart</el-button>
-              </div>
+              <nuxt-link to="#" class="border-t py-3 text-center" >
+                <el-button type="primary" :icon="Handbag" size="large">Add to cart</el-button>
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -71,18 +70,6 @@ import {
 } from '@element-plus/icons-vue'
 import { storeToRefs } from "pinia";
 import { useStores } from "~/store/store";
-import useUserBuyActivity from "~/composables/useUserBuyActivity";
-const {
-  addToCart,
-  compareProduct,
-} = useUserBuyActivity();
 
-const prop = defineProps({
-  Product: {
-    type: Object,
-    required: true
-  }
-});
 const { compareProducts } = storeToRefs(useStores());
-console.log(compareProducts)
 </script>

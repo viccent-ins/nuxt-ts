@@ -1,31 +1,6 @@
 <template>
 <div>
-  <section class=" pt-5 mb-4  ">
-    <div class="w-full lg:container mx-auto px-4 py-6">
-      <div class="flex items-center justify-between w-full ">
-        <div class="flex flex-col items-center w-full">
-          <icon name="material-symbols:shopping-cart-rounded" color="red" size="35" class="opacity-80"></icon>
-          <h4 class="text-md font-semibold">1.My Cart</h4>
-        </div>
-        <div  class="flex flex-col items-center w-full ">
-          <icon name="material-symbols:map" color="" size="35" class="opacity-80"></icon>
-          <h4 class="text-md font-semibold">2.Shipping info</h4>
-        </div>
-        <div  class="flex flex-col items-center w-full">
-          <icon name="material-symbols:local-shipping-rounded" color="" size="35" class="opacity-80"></icon>
-          <h4 class="text-md font-semibold">3.Delivery info</h4>
-        </div>
-        <div class="flex flex-col items-center w-full">
-          <icon name="material-symbols:credit-card-outline-sharp" color="" size="35" class="opacity-80"></icon>
-          <h4 class="text-md font-semibold">4.Payment</h4>
-        </div>
-        <div class="flex flex-col items-center w-full">
-          <icon name="material-symbols:check-circle" color="" size="35" class="opacity-80"></icon>
-          <h4 class="text-md font-semibold">5.Confirmation</h4>
-        </div>
-      </div>
-    </div>
-  </section>
+<CheckoutProcess/>
   <section class="mb-4" id="cart-summary">
     <div class="w-full lg:container mx-auto px-4 py-6">
           <div class="shadow bg-white p-3 p-lg-4 rounded ">
@@ -55,7 +30,7 @@
                     <el-input style="width: 100px" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');" v-model.number="addToCart.quantity"> </el-input>
                     <el-button type="primary" :icon="Plus" circle @click="increaseCartQty(addToCart.id)"/>
                   </div>
-<!--                  <div class="text-md font-semibold primary">{{addToCart.total= addToCart.price * addToCart.quantity }}</div>-->
+                  <div class="text-md font-semibold primary">{{addToCart.total= addToCart.price * addToCart.quantity }}</div>
                   <el-button :icon="Delete"  circle @click="removeCart(addToCart.id)"></el-button>
                 </div>
                </div>
@@ -91,10 +66,11 @@ import {
 import { storeToRefs } from "pinia";
 import { useStores } from "~/store/store";
 import useUserBuyActivity from "~/composables/useUserBuyActivity";
+import CheckoutProcess from "~/components/CheckoutProcess.vue";
 const {
   removeCart,
   increaseCartQty,
-  decreaseCartQty
+  decreaseCartQty,
 } = useUserBuyActivity();
 const { addToCarts } = storeToRefs(useStores());
 </script>

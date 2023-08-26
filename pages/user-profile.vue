@@ -73,34 +73,8 @@
   </div>
 </div>
 </template>
-<scriptn setup>
-
-</scriptn>
-<style scoped>
-
-</style>
 <script setup >
-import { reactive, ref } from 'vue'
-
-const manageProfile = reactive({
-  name: '',
-  phone: '',
-  file: '',
-  password:'',
-  confirmPassword: '',
-  cashPayment: false,
-  bankPayment: false,
-  bankName: '',
-  bankAccountName:'',
-  bankAccountNumber:'',
-  routingNumber:'',
-  trc20:'',
-  erc20:'',
-  updateEmail:'',
-  apiurl:'',
-  clientKey:''
-
-
-})
 
 </script>
+<style scoped>
+</style>

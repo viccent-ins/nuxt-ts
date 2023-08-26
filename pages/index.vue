@@ -184,9 +184,7 @@
         <div class=" px-4 py-4">
           <div class="flex mb-3 items-baseline border-b ">
             <h3 class="font-bold mb-0">
-        <span class="border-b-2 border-red-600 text-3xl  pb-3 inline-block">
-          Women's Clothing and Fashion
-        </span>
+              <span class="border-b-2 border-red-600 text-3xl  pb-3 inline-block">Women's Clothing and Fashion </span>
             </h3>
           </div>
           <div class=" overflow-x-scroll">

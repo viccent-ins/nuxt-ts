@@ -17,8 +17,6 @@ const manageProfile = reactive({
   updateEmail:'',
   apiurl:'',
   clientKey:''
-
-
 })
 </script>
 

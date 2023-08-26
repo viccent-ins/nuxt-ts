@@ -3,7 +3,7 @@
  <div>
    <h3 class="font-semibold text-lg">Wishlist</h3>
  </div>
-  <div class=" ">
+  <div class="mt-3 ">
     <div class="flex">
       <div
           v-for="(addToWishlist , index) in addToWishlists"
@@ -24,6 +24,13 @@
                 <h4>{{ addToWishlist.title }}</h4>
               </h3>
             </div>
+            <hr>
+            <div class="flex justify-between items-center p-3">
+              <el-icon  size="30">
+                <Delete/>
+              </el-icon>
+              <el-button type="primary" :icon="Handbag" size="large" >Add to cart</el-button>
+            </div>
           </div>
         </div>
       </div>
@@ -35,14 +42,12 @@
 import { storeToRefs } from "pinia";
 import { useStores } from "~/store/store";
 import useUserBuyActivity from "~/composables/useUserBuyActivity";
-import useProductList from "~/composables/useProductList";
+import { Delete, Handbag } from "@element-plus/icons-vue";
 const {
   addToWishlist,
 } = useUserBuyActivity();
 const { addToWishlists } = storeToRefs(useStores());
-const {
-  Data,
-} = useProductList();
+
 </script>
 <style scoped>
 

@@ -14,8 +14,18 @@ export default function useUserBuyActivity() {
             quantity:1,
         };
         stores.addToCart(param);
-
-
+    };
+    const addToWishlist = (object: any) => {
+        const { id, title, image, price, total } = object;
+        let param = {
+            id,
+            title,
+            image,
+            price,
+            total,
+            quantity:1,
+        };
+        stores.addToWishlist(param);
     };
     const removeCart = (id: number) => {
         stores.removeCart(id);
@@ -26,6 +36,7 @@ export default function useUserBuyActivity() {
     const decreaseCartQty = (id: number) => {
         stores.decreaseQty(id);
     };
+
     const compareProduct = (object: any) => {
         const { id, title, image, price, total } = object;
         let param = { 
@@ -38,11 +49,13 @@ export default function useUserBuyActivity() {
         };
         stores.addCompareProduct(param);
     };
+
     return {
         addToCart,
         removeCart,
         compareProduct,
         increaseCartQty,
-        decreaseCartQty
+        decreaseCartQty,
+        addToWishlist
     }
 }

@@ -38,6 +38,7 @@
 </template>
 
 <script setup>
+const checked = ref(false);
 const {
   login,
   loginRequest,

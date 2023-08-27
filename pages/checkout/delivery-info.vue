@@ -38,7 +38,7 @@
   </section>
 </div>
 </template>
-<script setup lang="ts">
+<script setup >
 const ruleForm = reactive({
   resource: '',
 })

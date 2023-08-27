@@ -1,13 +1,12 @@
 import axios from "axios";
 import { useStores } from '~/store/store';
 import { storeToRefs } from "pinia";
-import { logger } from "@nuxt/kit";
 
 export default function useSingleProduct() {
     const singleProduct = ref([]);
     const {apiServer} = storeToRefs(useStores());
     const route = useRoute();
-    const {isLoading, ruleFormRef} = useVariable();
+    const isLoading = ref(false);
     const getSingleProduct = async () => {
         isLoading.value = true;
         const id = route.query.product_id;

@@ -5,7 +5,7 @@ import { storeToRefs } from "pinia";
 export default function useRelatedProduct() {
     const relatedProducts = ref([]);
     const {apiServer} = storeToRefs(useStores());
-    const {isLoading, ruleFormRef} = useVariable();
+    const isLoading = ref(false);
     const route = useRoute();
     const getRelatedProduct = async () => {
         const cat_ids = route.query.cat_ids;

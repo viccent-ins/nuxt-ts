@@ -1,6 +1,4 @@
 import { defineStore } from 'pinia';
-import IUser from '@/models/users/IUser';
-import { IAuthorisation } from '@/models/auth/ILogin';
 
 export const useStores = defineStore('store', {
     state: () => {
@@ -21,31 +19,31 @@ export const useStores = defineStore('store', {
         },
         auth: false,
         server: 'http://127.0.0.1:8000/',
-        addToCarts: <any>[],
-        compareProducts: <any>[],
-        addToWishlists: <any>[],
+        addToCarts: [],
+        compareProducts: [],
+        addToWishlists: [],
       }
     },
     actions: {
-      updateLocale(lang: string) {
+      updateLocale(lang) {
         this.locale = lang;
       },
-      updateAuthorisation(authorisation: IAuthorisation) {
+      updateAuthorisation(authorisation) {
         this.authorisation = authorisation;
       },
-      removeAuthorisation(authorisation: string) {
+      removeAuthorisation(authorisation) {
         this.authorisation.token = authorisation;
         this.auth = false;
       },
 
-      updateUser(user: IUser) {
+      updateUser(user) {
         this.user = user;
       },
-      updateAuth(auth: boolean) {
+      updateAuth(auth) {
         this.auth = auth;
       },
-      addToCart(param: any) {
-        const item = this.addToCarts.find((item: any) => item.id === param.id);
+      addToCart(param) {
+        const item = this.addToCarts.find((item) => item.id === param.id);
         if (item) {
           item.quantity += 1;
         } else {
@@ -53,8 +51,8 @@ export const useStores = defineStore('store', {
         }
 
       },
-      addToWishlist(param: any) {
-        const item = this.addToWishlists.find((item: any) => item.id === param.id);
+      addToWishlist(param) {
+        const item = this.addToWishlists.find((item) => item.id === param.id);
         if (item) {
           item.quantity += 1;
         } else {
@@ -62,19 +60,19 @@ export const useStores = defineStore('store', {
         }
 
       },
-      removeCart(elementId: number) {
-        this.addToCarts = this.addToCarts.filter((item: any) => item.id !== elementId);
+      removeCart(elementId) {
+        this.addToCarts = this.addToCarts.filter((item) => item.id !== elementId);
       },
-      increaseQty(id: number) {
-        const item = this.addToCarts.find((item: any) => item.id === id);
+      increaseQty(id) {
+        const item = this.addToCarts.find((item) => item.id === id);
         if (item) item.quantity += 1;
       },
-      decreaseQty(id: number) {
-        const item = this.addToCarts.find((item: any) => item.id === id);
+      decreaseQty(id) {
+        const item = this.addToCarts.find((item) => item.id === id);
         if (item.quantity > 1) item.quantity -= 1;
       },
-      addCompareProduct(param: any) {
-        const item = this.compareProducts.find((item: any) => item.id === param.id);
+      addCompareProduct(param) {
+        const item = this.compareProducts.find((item) => item.id === param.id);
         if (item) return;
         let elements = this.compareProducts;
         if (elements.includes(param)) return;
@@ -86,7 +84,6 @@ export const useStores = defineStore('store', {
       },
 
     },
-    
     getters: {
       userInfo: (state) => state.user,
       isAuth: (state) => {

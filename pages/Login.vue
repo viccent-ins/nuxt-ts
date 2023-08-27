@@ -26,7 +26,7 @@
             <el-checkbox v-model="checked" label="Remember Me" size="large" />
             <a href="/reset" class="text-gray-500"> Forget password?</a>
           </div>
-          <el-button size="large" type='primary' class="w-full" @click="onLogin(ruleFormRef)" :loading="isProcessing"
+          <el-button size="large" type='primary' class="w-full" @click="login" :loading="isProcessing"
           >Login</el-button
           >
         </el-form>
@@ -39,12 +39,9 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-const checked = ref(true)
+<script setup>
 const {
-  loginRule,
-  onLogin,
-  ruleFormRef,
+  login,
   loginRequest,
   isProcessing,
 } = useLogin();

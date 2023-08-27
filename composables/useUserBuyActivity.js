@@ -2,8 +2,7 @@ import { useStores } from "~/store/store";
 import { storeToRefs } from "pinia";
 export default function useUserBuyActivity() {
     const stores = useStores();
-    const { apiServer } = storeToRefs(useStores());
-    const addToCart = (object: any) => {
+    const addToCart = (object) => {
         const { id, title, image, price, total } = object;
         let param = { 
             id,
@@ -15,7 +14,7 @@ export default function useUserBuyActivity() {
         };
         stores.addToCart(param);
     };
-    const addToWishlist = (object: any) => {
+    const addToWishlist = (object) => {
         const { id, title, image, price, total } = object;
         let param = {
             id,
@@ -27,17 +26,17 @@ export default function useUserBuyActivity() {
         };
         stores.addToWishlist(param);
     };
-    const removeCart = (id: number) => {
+    const removeCart = (id) => {
         stores.removeCart(id);
     };
-    const increaseCartQty = (id: number) => {
+    const increaseCartQty = (id) => {
         stores.increaseQty(id);
     };
-    const decreaseCartQty = (id: number) => {
+    const decreaseCartQty = (id) => {
         stores.decreaseQty(id);
     };
 
-    const compareProduct = (object: any) => {
+    const compareProduct = (object) => {
         const { id, title, image, price, total } = object;
         let param = { 
             id,

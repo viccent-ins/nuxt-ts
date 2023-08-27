@@ -272,7 +272,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import HeroPart from "~/components/HeroPart.vue";
 import useProductList from "~/composables/useProductList";
 import UserBuyActivity from "~/components/UserBuyActivity.vue";

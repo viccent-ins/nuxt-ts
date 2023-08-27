@@ -13,8 +13,8 @@ export const useApiBridge = () => {
     headers: { Authorization: `Bearer ${authorisation.value.token}`},
   });
   instance.interceptors.response.use(
-    (response: any) => response,
-    (error: { response: { status: number; data: { message: string; }; statusText: string; }; }) => {
+    (response) => response,
+    (error) => {
       if (error.response?.status === 422) {
         // @ts-ignore
         notificationHelper.notification(error.response.data?.errors.Message[0], EnumMessageType.Error);

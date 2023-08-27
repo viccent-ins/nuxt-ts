@@ -12,7 +12,7 @@ export default function useProductList() {
        AccessoryProducts: [],
     });
     const {apiServer} = storeToRefs(useStores());
-    const {isLoading, ruleFormRef} = useVariable();
+    const isLoading = ref(false);
 
     const getProductList = async () => {
         isLoading.value = true;

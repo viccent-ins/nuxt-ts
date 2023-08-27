@@ -89,7 +89,7 @@
   </section>
 </div>
 </template>
-<script setup lang="ts">
+<script setup >
 const checkOutFormPopUP = ref(false)
 const ruleForm =  reactive({
   name:'',

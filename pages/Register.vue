@@ -8,8 +8,6 @@
           </h1>
         </div>
         <el-form
-            ref="ruleFormRef"
-            :model="registerRequest"
             label-position="top"
             :rules="registerRule"
             status-icon
@@ -29,7 +27,7 @@
             <el-checkbox v-model="checked" label="By Signing up you agree to our terms and conditions" size="large" />
 
           <el-form-item >
-            <el-button class="w-full" size="large" type="primary" @click="onRegister(ruleFormRef)" :loading="isProcessing"
+            <el-button class="w-full" size="large" type="primary" @click="register" :loading="isProcessing"
             >Submit</el-button
             >
           </el-form-item>
@@ -43,12 +41,10 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 const checked = ref(false)
 const {
   registerRule,
-  onRegister,
-  ruleFormRef,
   registerRequest,
   isProcessing,
 } = useRegister();

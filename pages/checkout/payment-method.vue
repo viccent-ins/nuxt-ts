@@ -97,14 +97,14 @@
 const activeName = ref('first')
 const agree = ref(true)
 const handleClick = () => {
-  console.log(handleClick)
 }
 </script>
+
 <style scoped>
-.demo-tabs > .el-tabs__content {
-  padding: 32px;
+.demo-tabs {
+  padding: 0;
   color: #6b778c;
-  font-size: 32px;
+
   font-weight: 600;
 }
 </style>

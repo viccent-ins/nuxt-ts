@@ -53,7 +53,7 @@
                 <h5 class="text-lg font-semibold primary px-2">{{ compareProduct.price }}$</h5>
               </div>
               <div class="border-t py-3 text-center" >
-                <el-button type="primary" :icon="Handbag" size="large"  @click="addToCart(prop.Product)">Add to cart</el-button>
+                <el-button type="primary" :icon="Handbag" size="large"  @click="addToCart(compareProduct)">Add to cart</el-button>
               </div>
             </div>
           </div>
@@ -71,7 +71,8 @@ import { storeToRefs } from "pinia";
 import { useStores } from "~/store/store";
 import useUserBuyActivity from "~/composables/useUserBuyActivity";
 const {
-  addToCart
+  addToCart,
+  resetCompare,
 } = useUserBuyActivity();
 const { compareProducts } = storeToRefs(useStores());
 const prop = defineProps({

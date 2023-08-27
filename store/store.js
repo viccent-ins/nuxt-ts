@@ -63,6 +63,9 @@ export const useStores = defineStore('store', {
       removeCart(elementId) {
         this.addToCarts = this.addToCarts.filter((item) => item.id !== elementId);
       },
+      removeWishList(elementId) {
+        this.addToWishlists = this.addToWishlists.filter((item) => item.id !== elementId);
+      },
       increaseQty(id) {
         const item = this.addToCarts.find((item) => item.id === id);
         if (item) item.quantity += 1;

@@ -35,7 +35,12 @@ export default function useUserBuyActivity() {
     const decreaseCartQty = (id) => {
         stores.decreaseQty(id);
     };
-
+    const resetCompare = () => {
+        stores.resetCompare();
+    }
+    const removeWishList = (id) => {
+        stores.removeWishList(id);
+    }
     const compareProduct = (object) => {
         const { id, title, image, price, total } = object;
         let param = { 
@@ -55,6 +60,8 @@ export default function useUserBuyActivity() {
         compareProduct,
         increaseCartQty,
         decreaseCartQty,
-        addToWishlist
+        addToWishlist,
+        resetCompare,
+        removeWishList,
     }
 }

@@ -12,7 +12,7 @@
                 <nuxt-link to="/" class="font-semibold">Home</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/returnpolicy" class=" font-bold primary">/ "Return policy"</nuxt-link>
+                <nuxt-link to="/return-policy" class=" font-bold primary">/ "Return policy"</nuxt-link>
               </li>
             </ul>
           </div>

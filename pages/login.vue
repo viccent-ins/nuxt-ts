@@ -18,7 +18,7 @@
             <el-input v-model="loginRequest.account" type="text" autocomplete="off" size="large" placeholder="Phone"/>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input size="large" v-model="loginRequest.password" type="password" autocomplete="off" @keyup.enter="onLogin(ruleFormRef)" placeholder="Password"/>
+            <el-input size="large" v-model="loginRequest.password" type="password" autocomplete="off" @keyup.enter="login" placeholder="Password"/>
           </el-form-item>
           <div class=" flex justify-between py-3">
             <el-checkbox v-model="checked" label="Remember Me" size="large" />
@@ -30,7 +30,7 @@
         </el-form>
         <div class="text-center mt-10 mb-6">
           <p class="text-gray-500 mb-0">Dont have an account?</p>
-          <a class="primary" href="/register">Register Now</a>
+          <NuxtLink class="primary" to="/register">Register Now</NuxtLink>
         </div>
       </div>
     </div>

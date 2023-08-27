@@ -1,4 +1,3 @@
-import { reactive } from 'vue';
 import axios from "axios";
 import { storeToRefs } from "pinia";
 import { useStores } from "~/store/store";
@@ -22,9 +21,6 @@ export default function useRegister() {
             .catch((err) => console.log("err", err));
         isProcessing.value = false;
     }
-
-
-
     return {
         registerRequest,
         isProcessing,

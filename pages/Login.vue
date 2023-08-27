@@ -9,9 +9,7 @@
         </div>
         <el-form
             ref="ruleFormRef"
-            :model="loginRequest"
             label-position="top"
-            :rules="loginRule"
             status-icon
             :disabled="isProcessing"
             class="p-6"

@@ -73,13 +73,13 @@
                 </li>
                 <li class="mb-2">
                   <nuxt-link  class="opacity-50 hover:opacity-100 text-base"
-                     to="user-profile/purchase-history">
+                     to="/user-profile/purchase-history">
                     Order History
                   </nuxt-link>
                 </li>
                 <li class="mb-2">
                   <nuxt-link  class="opacity-50 hover:opacity-100 text-reset"
-                     to="user-profile/wishlist">
+                     to="/user-profile/wishlist">
                     My Wishlist
                   </nuxt-link>
                 </li>
@@ -91,8 +91,8 @@
             </div>
             <div class="text-left mt-4">
               <h4 class="text-lg uppercase font-semibold border-b-gray-200 border-b pb-2 mb-8 border-opacity-25 ">
-                Be A Sellenuxt-lto</h4>
-              <nuxt-link  to="https://wal-marting.com/shops/create" class="btn bg-red-600 rounded-md text-white w-40 p-3 text-base shadow ">
+                Be A Seller</h4>
+              <nuxt-link  to="/user-profile/merchant-registration" class="btn bg-red-600 rounded-md text-white w-40 p-3 text-base shadow ">
                 Apply Now
               </nuxt-link>
             </div>
@@ -120,7 +120,7 @@
           </nuxt-link>
         </div>
         <div class="">
-          <nuxt-link to="/categories" class="flex items-center flex-col pb-2 pt-3">
+          <nuxt-link to="#" class="flex items-center flex-col pb-2 pt-3">
             <icon name="material-symbols:view-list-sharp" size="25" class="opacity-60"></icon>
             <span class="text-md font-semibold opacity-60 ">Categories</span>
           </nuxt-link>
@@ -131,7 +131,7 @@
                     <icon class="text-white" name="material-symbols:shopping-bag-outline-sharp" size="35"></icon>
                 </span>
             <span class=" mt-[-20px] text-base font-bold opacity-60 ">
-                    Cart(<span class="cart-count">0</span>)
+                    Cart(<span class="cart-count">{{ stores.addToCarts.length }}</span>)
           </span>
           </nuxt-link>
         </div>
@@ -157,6 +157,9 @@
   </div>
 </template>
 <script setup>
+import { useStores } from "~/store/store";
+
+const stores = useStores();
 import CompanyPolicy from "~/components/CompanyPolicy.vue";
 const logoImage = {
   src:'/images/shopro.png',

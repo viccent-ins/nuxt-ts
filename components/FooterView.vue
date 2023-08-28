@@ -7,9 +7,9 @@
         <div class="grid grid-cols-3 gap-6">
           <div class="  text-left">
             <div class="mt-4">
-              <a href="#" class="block bg-white">
+              <nuxt-link to="#" class="block bg-white">
                 <img v-bind="logoImage" :style="logoWidth" height="44" >
-              </a>
+              </nuxt-link>
               <div class="  my-4">
                 <form class=" flex items-center" method="POST" action="#">
                   <input
@@ -23,12 +23,12 @@
                 </form>
               </div>
               <div class="flex justify-between ">
-                <a href="/" target="_blank" class="block mr-3 ml-0">
+                <nuxt-link to="/" target="_blank" class="block mr-3 ml-0">
                   <img v-bind="playStoreImage" class=" h-40px">
-                </a>
-                <a href="/" target="_blank" class="block mr-3 ml-0">
+                </nuxt-link>
+                <nuxt-link to="/" target="_blank" class="block mr-3 ml-0">
                   <img v-bind="appleStoreImage" class=" h-40px">
-                </a>
+                </nuxt-link>
               </div>
             </div>
           </div>
@@ -62,40 +62,39 @@
               </h4>
               <ul class="list-none">
                 <li class="mb-2">
-                  <a class="opacity-50 hover:opacity-100 " href="/login">
+                  <nuxt-link  class="opacity-50 hover:opacity-100 " to="/login">
                     Login
-                  </a>
-                  <a class="opacity-50 hover:opacity-100 text-base"
-                     href="/login"
+                  </nuxt-link>
+                  <nuxt-link  class="opacity-50 hover:opacity-100 text-base"
+                     to="/login"
                   >
                     Logout
-                  </a>
+                  </nuxt-link>
                 </li>
                 <li class="mb-2">
-                  <a class="opacity-50 hover:opacity-100 text-base"
-                     href="user-profile/purchase-history">
+                  <nuxt-link  class="opacity-50 hover:opacity-100 text-base"
+                     to="user-profile/purchase-history">
                     Order History
-                  </a>
+                  </nuxt-link>
                 </li>
                 <li class="mb-2">
-                  <a class="opacity-50 hover:opacity-100 text-reset"
-                     href="user-profile/wishlist">
+                  <nuxt-link  class="opacity-50 hover:opacity-100 text-reset"
+                     to="user-profile/wishlist">
                     My Wishlist
-                  </a>
+                  </nuxt-link>
                 </li>
                 <li class="mb-2">
-                  <a class="opacity-50 hover:opacity-100 text-light"
-                     href="https://wal-marting.com/affiliate">Be an affiliate partner</a>
+                  <nuxt-link  class="opacity-50 hover:opacity-100 text-light"
+                     to="https://wal-marting.com/affiliate">Be an affiliate partner</nuxt-link>
                 </li>
               </ul>
             </div>
             <div class="text-left mt-4">
               <h4 class="text-lg uppercase font-semibold border-b-gray-200 border-b pb-2 mb-8 border-opacity-25 ">
-                Be A Seller
-              </h4>
-              <a href="https://wal-marting.com/shops/create" class="btn bg-red-600 rounded-md text-white w-40 p-3 text-base shadow ">
+                Be A Sellenuxt-lto</h4>
+              <nuxt-link  to="https://wal-marting.com/shops/create" class="btn bg-red-600 rounded-md text-white w-40 p-3 text-base shadow ">
                 Apply Now
-              </a>
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -115,42 +114,42 @@
     <div class="block xl:hidden w-full fixed bottom-0 bg-white shadow border-t rounded-t-md z-10" style="box-shadow: 0px -1px 10px rgb(0 0 0 / 15%)!important; ">
       <div class="w-full lg:container px-3 mx-auto flex items-center justify-between ">
         <div class="">
-          <a href="https://wal-marting.com" class="flex items-center flex-col pb-2 pt-3">
+          <nuxt-link to="/" class="flex items-center flex-col pb-2 pt-3">
             <icon name="material-symbols:house-outline-rounded" size="25px"></icon>
             <span class="text-md font-semibold">Home</span>
-          </a>
+          </nuxt-link>
         </div>
         <div class="">
-          <a href="https://wal-marting.com/categories" class="flex items-center flex-col pb-2 pt-3">
+          <nuxt-link to="/categories" class="flex items-center flex-col pb-2 pt-3">
             <icon name="material-symbols:view-list-sharp" size="25" class="opacity-60"></icon>
             <span class="text-md font-semibold opacity-60 ">Categories</span>
-          </a>
+          </nuxt-link>
         </div>
         <div class="">
-          <a href="https://wal-marting.com/cart" class="flex items-center flex-col  ">
+          <nuxt-link to="/cart" class="flex items-center flex-col  ">
                 <span class="text-center border-white border-4  relative top-[-25px] rounded-full w-[50px] h-[50px] bg-red-600" >
                     <icon class="text-white" name="material-symbols:shopping-bag-outline-sharp" size="35"></icon>
                 </span>
             <span class=" mt-[-20px] text-base font-bold opacity-60 ">
                     Cart(<span class="cart-count">0</span>)
           </span>
-          </a>
+          </nuxt-link>
         </div>
         <div class="">
-          <a href="https://wal-marting.com/all-notifications" class="flex items-center flex-col pb-2 pt-3">
+          <nuxt-link to="/user-profile/all-notifications" class="flex items-center flex-col pb-2 pt-3">
             <span class="block relative px-2">
               <icon name="material-symbols:notifications" size="25"></icon>
             </span>
             <span class=" text-md font-semibold opacity-60 ">Notifications</span>
-          </a>
+          </nuxt-link>
         </div>
         <div class="">
-          <a href='/userprofile/dashboard' class="flex items-center flex-col pb-2 pt-3">
+          <nuxt-link to='/user-profile' class="flex items-center flex-col pb-2 pt-3">
                 <span class="block mx-auto">
                     <img src="https://wal-marting.com/public/assets/img/avatar-place.png" class="rounded-full w-[20px]">
                 </span>
             <span class="d-block fs-10 fw-600 opacity-60">Account</span>
-          </a>
+          </nuxt-link>
         </div>
       </div>
     </div>

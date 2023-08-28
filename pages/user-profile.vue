@@ -60,9 +60,9 @@
                  </ul>
                </div>
              </div>
-             <div class="seller p-3 bg-red-200 hover:bg-red-500 hover:text-white text-center font-semibold primary ">
+             <nuxt-link to="/user-profile/merchant-registration" class="seller p-3 bg-red-200 hover:bg-red-500 hover:text-white text-center font-semibold primary ">
                <h5>Be A Seller</h5>
-             </div>
+             </nuxt-link>
            </div>
          </div>
        </div>

@@ -1,25 +1,3 @@
-<script setup>
-
-const manageProfile = reactive({
-  name: '',
-  phone: '',
-  file: '',
-  password:'',
-  confirmPassword: '',
-  cashPayment: false,
-  bankPayment: false,
-  bankName: '',
-  bankAccountName:'',
-  bankAccountNumber:'',
-  routingNumber:'',
-  trc20:'',
-  erc20:'',
-  updateEmail:'',
-  apiurl:'',
-  clientKey:''
-})
-</script>
-
 <template>
   <!--        Manage Profile start-->
   <div class="flex flex-col px-4">
@@ -53,12 +31,6 @@ const manageProfile = reactive({
                   v-model:file-list="fileList"
                   class="upload-demo "
                   multiple
-                  :on-preview="handlePreview"
-                  :on-remove="handleRemove"
-                  :before-remove="beforeRemove"
-                  :limit="3"
-                  :on-exceed="handleExceed"
-
               >
                 <el-input v-model="manageProfile.file" placeholder="Choose File" />
               </el-upload>
@@ -174,7 +146,26 @@ const manageProfile = reactive({
 
   <!--        Manage Profile End-->
 </template>
-
+<script setup>
+const manageProfile = reactive({
+  name: '',
+  phone: '',
+  file: '',
+  password:'',
+  confirmPassword: '',
+  cashPayment: false,
+  bankPayment: false,
+  bankName: '',
+  bankAccountName:'',
+  bankAccountNumber:'',
+  routingNumber:'',
+  trc20:'',
+  erc20:'',
+  updateEmail:'',
+  apiurl:'',
+  clientKey:''
+})
+</script>
 <style scoped>
 
 </style>

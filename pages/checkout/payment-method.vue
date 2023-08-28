@@ -41,7 +41,7 @@
           <div class=" shadow bg-white py-3 w-full lg:w-2/5">
             <div class=" flex px-3 border-b pb-3 justify-between">
               <h5 class="text-md font-semibold">Summary</h5>
-              <el-button type="primary">Danger</el-button>
+              <el-button type="primary"><span class="pr-2">1</span>items</el-button>
             </div>
             <div class="flex flex-col px-3 pb-6">
               <div class=" flex  px-2 justify-between border-b py-3">
@@ -79,15 +79,14 @@
              <a class=" primary ml-2" href="#">return policy</a> "&"
              <a class=" primary ml-2" href="#">privacy policy</a>
            </div>
-            <a href="/public" class="btn primary font-bold hover:underline">
+            <nuxt-link to="/public" class="btn primary font-bold hover:underline">
               <icon name="material-symbols:arrow-back-rounded"></icon>
               Return to shop
-            </a>
+            </nuxt-link>
           </div>
-          <div class="order-2 block ">
-            <button class="btn bg-primary font-bold px-3 py-2 text-white rounded-md">Continue to
-              Shipping</button>
-          </div>
+          <nuxt-link to="/checkout/order-confirmed" class="order-2 block ">
+            <button class="btn bg-primary font-bold px-3 py-2 text-white rounded-md">Complete order</button>
+          </nuxt-link>
         </div>
       </div>
     </section>

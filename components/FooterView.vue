@@ -111,7 +111,7 @@
 
   </footer>
 <!--  Footer Menu start here-->
-    <div class="block xl:hidden w-full fixed bottom-0 bg-white shadow border-t rounded-t-md z-10" style="box-shadow: 0px -1px 10px rgb(0 0 0 / 15%)!important; ">
+    <div class="block xl:hidden w-full fixed bottom-0 bg-white shadow border-t rounded-t-md z-10" style="box-shadow: 0 -1px 10px rgb(0 0 0 / 15%)!important; ">
       <div class="w-full lg:container px-3 mx-auto flex items-center justify-between ">
         <div class="">
           <nuxt-link to="/" class="flex items-center flex-col pb-2 pt-3">
@@ -146,7 +146,7 @@
         <div class="">
           <nuxt-link to='/user-profile' class="flex items-center flex-col pb-2 pt-3">
                 <span class="block mx-auto">
-                    <img src="https://wal-marting.com/public/assets/img/avatar-place.png" class="rounded-full w-[20px]">
+                    <img src="https://wal-marting.com/public/assets/img/avatar-place.png" alt="user photo" class="rounded-full w-[20px]">
                 </span>
             <span class="d-block fs-10 fw-600 opacity-60">Account</span>
           </nuxt-link>

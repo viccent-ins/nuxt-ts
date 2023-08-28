@@ -1,6 +1,6 @@
 <template>
 
-  <div class="w-full lg:container  flex-col lg:flex-row lg:flex items-start  mt-5 mx-auto px-4 ">
+  <div class="w-full lg:container  flex-col lg:flex-row lg:flex items-start relative mt-5 mx-auto px-4 ">
     <div class="w-60 position-static hidden lg:block">
       <div class="aiz-category-menu bg-white rounded  shadow-sm">
         <!-- Category and SubCategory start here -->
@@ -48,13 +48,13 @@
     <!-- Home banner start Here -->
     <div class=" w-full lg:w-2/3 ml-0 lg:ml-3">
       <div class="aiz-carousel">
-        <el-carousel :interval="5000" arrow="always"  class="h-[400px]">
+        <el-carousel :interval="5000"  class="h-[400px] ">
           <el-carousel-item v-for="(banner ,index) in banners" :key="index" class="carouselHight">
             <img :src=banner.image alt="" class="w-full h-full">
           </el-carousel-item>
         </el-carousel>
         <ul class="list-unstyled flex flex-wrap w-full items-center justify-between ">
-          <li class=" mt-15  lg:mt-7" v-for="category  in categories " :key="category.name">
+          <li class=" mt-15  lg:mt-2" v-for="category  in categories " :key="category.name">
             <a href="https://wal-marting.com/category/----txlnh"
                class="flex flex-col items-center rounded bg-white p-2 w-32  shadow text-center">
               <img :src=category.image width="80" :alt="category.name" height="40">
@@ -78,17 +78,12 @@
                  v-for="(menuItem, index) in menus" :key="index"
               >
                 <div class="flex mb-2 items-center justify-around">
-                  <div class="col-xxl">
                     <div class="img">
-                      <img class="img-fit h-140px h-lg-80px ls-is-cached lazyloaded"
-                           :src=menuItem.image>
+                      <img alt="menu item" class="img-fit h-140px h-lg-80px ls-is-cached lazyloaded" :src=menuItem.image>
                     </div>
-                  </div>
-                  <div class="col-xxl">
-                    <div class="text-lg">
-                      <span class="d-block text-primary font-semibold">{{ menuItem.name }}</span>
+                    <div class="text-md">
+                      <span class=" font-semibold">{{ menuItem.name }}</span>
                     </div>
-                  </div>
                 </div>
               </a>
             </div>
@@ -116,12 +111,12 @@ const {
 .aiz-category-menu .sub-cat-menu {
   display: none;
   position: absolute;
-  width: 60%;
-  left: 25%;
+  width: calc(100% - 18%);
+  left: calc(18% - 18px);
   height: 500px;
   overflow: hidden;
-  top: 190px;
-  z-index: 9;
+  top: 0;
+  z-index: 5;
   background-color: #fff;
   overflow-y: scroll;
   border-radius: 8px;

@@ -42,15 +42,15 @@
             </div>
             <div class="flex items-center py-6 justify-between ">
               <div class="order-1 ">
-                <a href="/" class="btn primary font-bold hover:underline">
+                <nuxt-link to="/" class="btn primary font-bold hover:underline">
                   <icon name="material-symbols:arrow-back-rounded"></icon>
                   Return to shop
-                </a>
+                </nuxt-link>
               </div>
-              <div class="order-2 block ">
+              <nuxt-link to="/checkout/shipping-info" class="order-2 block ">
                 <button class="btn bg-primary font-bold px-3 py-2 text-white rounded-md">Continue to
                   Shipping</button>
-              </div>
+              </nuxt-link>
             </div>
           </div>
     </div>

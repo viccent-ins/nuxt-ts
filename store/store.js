@@ -10,7 +10,7 @@ export const useStores = defineStore('store', {
             created_at: '',
             updated_at: '',
         },
-        locale: 'kh',
+        locale: 'en',
         ip: '',
         authorisation: {
             token: '',

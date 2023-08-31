@@ -8,7 +8,7 @@
           <div class="  text-left">
             <div class="mt-4">
               <nuxt-link to="#" class="block bg-white">
-                <img v-bind="logoImage" :style="logoWidth" height="44" >
+                <img loading="lazy" v-bind="logoImage" :style="logoWidth" height="44" >
               </nuxt-link>
               <div class="  my-4">
                 <form class=" flex items-center" method="POST" action="#">
@@ -24,10 +24,10 @@
               </div>
               <div class="flex justify-between ">
                 <nuxt-link to="/" target="_blank" class="block mr-3 ml-0">
-                  <img v-bind="playStoreImage" class=" h-40px">
+                  <img loading="lazy" v-bind="playStoreImage" class=" h-40px">
                 </nuxt-link>
                 <nuxt-link to="/" target="_blank" class="block mr-3 ml-0">
-                  <img v-bind="appleStoreImage" class=" h-40px">
+                  <img loading="lazy" v-bind="appleStoreImage" class=" h-40px">
                 </nuxt-link>
               </div>
             </div>
@@ -103,7 +103,7 @@
     <section class="py-6 bg-black text-light pb-[100px] xl:pb-6">
       <div class="container mx-auto">
           <div class="flex items-center justify-end">
-            <img v-bind="paymentSystem"
+            <img  v-bind="paymentSystem" loading="lazy"
                  height="30" class="mw-100 h-auto" style="max-height: 30px">
           </div>
       </div>
@@ -120,7 +120,7 @@
           </nuxt-link>
         </div>
         <div class="">
-          <nuxt-link to="#" class="flex items-center flex-col pb-2 pt-3">
+          <nuxt-link to="/category" class="flex items-center flex-col pb-2 pt-3">
             <icon name="material-symbols:view-list-sharp" size="25" class="opacity-60"></icon>
             <span class="text-md font-semibold opacity-60 ">Categories</span>
           </nuxt-link>
@@ -146,7 +146,7 @@
         <div class="">
           <nuxt-link to='/user-profile' class="flex items-center flex-col pb-2 pt-3">
                 <span class="block mx-auto">
-                    <img src="https://wal-marting.com/public/assets/img/avatar-place.png" alt="user photo" class="rounded-full w-[20px]">
+                    <img loading="lazy" src="/images/avatar.png" alt="user photo" class="rounded-full w-[20px]">
                 </span>
             <span class="d-block fs-10 fw-600 opacity-60">Account</span>
           </nuxt-link>

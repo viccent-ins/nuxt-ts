@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useStores } from '~/store/store';
 import { storeToRefs } from "pinia";
+import {  Navigation } from 'swiper/modules';
+
 
 export default function useProductList() {
     const Data = reactive({
@@ -82,8 +84,10 @@ export default function useProductList() {
         isLoading.value = false;
     }
     getcomputerAccessoriesProducts();
+
     return {
         isLoading,
         Data,
+        modules: [ Navigation],
     }
 }

@@ -19,15 +19,17 @@
           </div>
         </div>
         <div class="menu-right w-1/5 justify-end items-center  hidden lg:flex">
+          <nuxt-link  to="/user-profile">My Panel</nuxt-link>
           <nuxt-link  to="/login">{{ $t('login') }}</nuxt-link>
           <nuxt-link  class="border-l-2 p-2 ml-3" to="/register">{{ $t('register') }}</nuxt-link>
+          <nuxt-link  class=" p-2 ml-3" to="">LogOut</nuxt-link>
         </div>
       </div>
     </div>
     <div class="header border-b-[1px] py-5 shadow-[0_1px_8px_rgba(0,0,0,0.1)]">
       <div class="w-full lg:container  flex items-center justify-between py-3 mx-auto px-4">
           <NuxtLink to="/">
-            <div class="logoArea">
+            <div class="logoArea bg-white">
               <img v-bind="logoImage" :style="logoWidth" height="40" >
             </div>
           </NuxtLink>

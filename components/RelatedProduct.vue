@@ -14,18 +14,20 @@
             <div class="carousel-box mr-4">
               <div class="border overflow-hidden rounded hover:shadow mt-1 mb-2 bg-white transition duration-100 ease-in-out">
                 <div class="relative">
-                  <nuxt-link :to="`/product/${ product.title.replace(/\//g, '-') }?product_id=${product.id}&cat_ids=${product.category_ids}`" >
-                    <img class="w-full  h-[210px]  lazyloaded" :src="product.image" :alt="product.title">
+                  <nuxt-link :to="`/product/details?id=${product.id + '&cat_ids=' + product.category_ids}`"  >
+                    <img loading="lazy" class="w-full  h-[210px] " :src="product.image" :alt="product.title">
                   </nuxt-link>
-                  <UserBuyActivity/>
+                  <UserBuyActivity :Product="product" />
                 </div>
                 <div class="p-3">
                   <div class="text-lg">
-                    <span class="font-bold text-red-600">{{ product.price }}</span>
+                    <span class="font-bold text-red-600">${{ product.price }}</span>
                   </div>
-                  <h3 class="font-medium text-truncate text-lg mb-0 h-[55px]">
-                    <nuxt-link :to="`/product/${ product.title.replace(/\//g, '-') }?product_id=${product.id}&cat_ids=${product.category_ids}`" class="block text-lg">{{ product.title }}</nuxt-link>
-                  </h3>
+                  <nuxt-link
+                      :to="`/product/detail?id=${product.id + '&cat_ids=' + product.category_ids}`"
+                      class="block">
+                    <h3 class="font-medium text-truncate text-lg mb-0 h-[55px]">{{ product.title }}</h3>
+                  </nuxt-link>
                 </div>
               </div>
             </div>

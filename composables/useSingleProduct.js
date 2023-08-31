@@ -9,7 +9,7 @@ export default function useSingleProduct() {
     const isLoading = ref(false);
     const getSingleProduct = async () => {
         isLoading.value = true;
-        const id = route.query.product_id;
+        const id = route.query.id;
         await axios.get(apiServer.value + `/goods/detail?id=${id}`)
             .then(response => {
                 singleProduct.value = response.data.data;

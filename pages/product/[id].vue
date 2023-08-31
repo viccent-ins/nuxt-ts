@@ -9,11 +9,11 @@
               <div class="flex w-full">
                 <div class="flex flex-col mr-4"  >
                   <div class=" border p-1 mb-2 rounded " v-for="(singleProducts, index) in singleProduct.images" :key="index" v-loading="isLoading">
-                    <img class=" h-[60px]  lazyloaded" :src="singleProducts">
+                    <img loading="lazy" class=" h-[60px] " :src="singleProducts" :alt="singleProduct.title">
                   </div>
                 </div>
                 <div>
-                  <img class="img-fluid w-[450px] lazyloaded" :src="singleProduct.image">
+                  <img loading="lazy" class="img-fluid w-[450px]" :src="singleProduct.image" :alt="singleProduct.title">
                 </div>
               </div>
             </div>
@@ -188,7 +188,7 @@
                   </svg>
                 </div>
                 <div class="opacity-50 fs-12 border-bottom">Sold by</div>
-                <a href="https://wal-marting.com/shop/Nikusha" class="text-reset d-block fw-600">
+                <a href="#" class="text-reset d-block fw-600">
                   Nikusha
                   <span class="ms-2"><i class="fa fa-check-circle" style="color:green"></i></span>
                 </a>
@@ -206,13 +206,13 @@
               </div>
               <div class="flex items-center  border-t">
                 <div class="w-60">
-                  <a href="https://wal-marting.com/shop/Nikusha"
+                  <a href="#"
                      class="btn bg-red-200 hover:bg-red-500 flex items-center font-semibold px-5 py-3  text-red-500 hover:text-white  text-md">Visit Store</a>
                 </div>
                 <div class="w-full">
                   <ul class="social flex items-center justify-around   mb-0">
                     <li class="">
-                      <a href="https://www.facebook.com/nika.nugzarishvili.5?mibextid=ZbWKwL"
+                      <a href="#"
                          class="facebook" target="_blank">
                         <icon color="skyblue" name="ic:baseline-facebook" size="30"></icon>
                       </a>
@@ -241,20 +241,20 @@
               <div class="p-3 border-b text-2xl font-semibold">
                 Top Selling Products
               </div>
-              <div class="w-full overflow-y-scroll h-[900px]">
-                <ul class="flex flex-col">
-                  <div v-for="bestProduct in bestProducts"
-                      :key="bestProduct.id" v-loading="isLoading">
-                    <div class="flex items-center p-4">
+              <div class=" w-full overflow-y-scroll h-[900px]">
+                <div class="flex flex-col">
+                  <div v-for="(product , index ) in Data.BestProducts"
+                      :key="index" v-loading="isLoading">
+                    <div class="flex items-center p-4"  >
                       <div class="w-1/2 ">
-                        <nuxt-link :to="`/product/${ bestProduct.title}?product_id=${bestProduct.id}&cat_ids=${bestProduct.category_ids}`" >
-                          <img class=" lazyloaded" :src="bestProduct.image" :alt="bestProduct.title">
-                        </nuxt-link>
+                        <NuxtLink target="_self" :to="`/product/details?id=${product.id + '&cat_ids=' + product.category_ids}`" >
+                          <img  loading="lazy" :src="product.image" :alt="product.title">
+                        </NuxtLink>
                       </div>
                       <div class="w-1/2 p-3">
-                        <h4 class="text-md font-medium text-truncate ">
-                          <nuxt-link :to="`/product/${ bestProduct.title.replace(/\//g, '-') }?product_id=${bestProduct.id}&cat_ids=${bestProduct.category_ids}`" class="font-semibold text-lg">{{ bestProduct.title }}</nuxt-link>
-                        </h4>
+                        <div>
+                          <h3 class="text-md font-medium text-truncate">{{ product.title }}</h3>
+                        </div>
                         <div class="rating rating-sm mt-1">
                           <icon color="red" name="mdi:star"></icon>
                           <icon color="red" name="mdi:star"></icon>
@@ -262,14 +262,13 @@
                           <icon color="red" name="mdi:star"></icon>
                           <icon color="red" name="mdi:star-half-full"></icon>
                         </div>
-                        <div class="mt-2">
-                          <span class="text-lg font-bold primary">{{ bestProduct.price }}</span>
+                        <div class="mt-2 text-md font-semibold">
+                          <span class="primary">{{ product.price }}</span>
                         </div>
                       </div>
                     </div>
                   </div>
-
-                </ul>
+                </div>
               </div>
             </div>
             <!-- Top Selling Products End -->
@@ -278,13 +277,12 @@
             <!-- Product Description Start -->
             <div class="bg-white mb-3 shadow-sm rounded p-4">
 
-              <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
+              <el-tabs v-model="activeName" class="demo-tabs" >
                 <el-tab-pane label="Description" name="first">
                   <div class="carousel-box c-pointer border p-1 rounded me-4 "
                        style="width: 300px; max-height:300px ; display: inline-block;"
                        v-for="(singleProducts, index) in singleProduct.images" :key="index" v-loading="isLoading">
-                    <img class="w-100 size-50px mx-auto  lazyloaded"
-                         :src="singleProducts">
+                    <img loading="lazy" :src="singleProducts" alt="">
                   </div>
                 </el-tab-pane>
                 <el-tab-pane label="reviews" name="second">There have been no reviews for this product yet.</el-tab-pane>
@@ -317,14 +315,32 @@ function decrement() {
 }
 
 const activeName = ref('first')
-const handleClick = (tab, event) => {
-}
 const {
-  bestProducts,
+  Data,
   isLoading
 } = useProductList();
+
 const {
   singleProduct,
 } = useSingleProduct();
-
 </script>
+<style scoped>
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+</style>

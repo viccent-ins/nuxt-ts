@@ -20,4 +20,5 @@
   //   await store.updateLocale('updateLocale');
   //   window.location.reload();
   // };
+
 </script>

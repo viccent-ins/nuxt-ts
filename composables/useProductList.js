@@ -27,6 +27,10 @@ export default function useProductList() {
         isLoading.value = false;
     }
     getProductList();
+    const id = useRoute();
+    watch(() => id.query.id, () => {
+        window.location.reload();
+    });
     const getFeaturedProductList = async () => {
         isLoading.value = true;
         await axios.get(apiServer.value + '/goods/seckillList')

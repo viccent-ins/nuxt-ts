@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full lg:container  flex-col lg:flex-row lg:flex items-start relative mt-5 mx-auto px-4 ">
+  <div class="w-full lg:container  flex-col lg:flex-row lg:flex items-start relative mt-5 mx-auto  ">
     <div class="w-60 position-static hidden lg:block">
       <div class="aiz-category-menu bg-white rounded  shadow-sm">
         <!-- Category and SubCategory start here -->
@@ -69,7 +69,7 @@
     </div>
     <!-- Home banner End Here -->
 <!--    SideMenu start here-->
-    <div class=" w-full lg:w-60 ml-0 lg:ml-3 mt-8 lg:mt-0 ">
+    <div class=" w-full lg:w-60 ml-0 lg:ml-4 mt-8 lg:mt-0 ">
       <div class="bg-white rounded-b-lg shadow">
         <div class="h-[240px] lg:h-[650px]  xl:h-[500px] overflow-y-auto  p-2 bg-red-500 rounded-b-lg">
             <div class=" grid grid-cols-4 lg:grid-cols-1 gap-6 ">

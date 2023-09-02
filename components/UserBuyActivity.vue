@@ -1,7 +1,7 @@
 
 <template>
   <div class="absolute top-0 right-0 cartList-icon flex-col flex ">
-    <a href="#" class="bg-white w-10 h-10 flex items-center justify-center mt-3 rounded-full   " @click="addToWishlist(prop.Product)">
+    <a href="#" class="bg-white w-10 h-10 flex items-center justify-center mt-3 rounded-full  " @click="addToWishlist(prop.Product)">
       <Icon name="material-symbols:favorite-outline-rounded" size="20px" />
     </a>
     <a href="#" class="bg-white w-10 h-10 flex items-center justify-center  rounded-full my-2 " @click="compareProduct(prop.Product)">
@@ -23,8 +23,8 @@
   const {
     addToCart,
     compareProduct,
-      addToWishlist
-    } = useUserBuyActivity();
+      addToWishlist,
+  } = useUserBuyActivity();
 </script>
 <style scoped>
 

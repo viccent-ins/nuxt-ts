@@ -47,7 +47,7 @@
                   Return to shop
                 </nuxt-link>
               </div>
-              <nuxt-link to="#" class="order-2 block ">
+              <nuxt-link to="/checkout/shipping-info" class="order-2 block ">
                 <button class="btn bg-primary font-bold px-3 py-2 text-white rounded-md" v-on:click="checkIsLoginButton">Continue to
                   Shipping</button>
               </nuxt-link>

@@ -6,7 +6,7 @@ export const useStores = defineStore('store', {
         user: {
             id: 0,
             name: '',
-            email: '',
+            phone: '',
             created_at: '',
             updated_at: '',
         },
@@ -17,6 +17,7 @@ export const useStores = defineStore('store', {
             type: '',
             expires_in: 0,
         },
+        token: '',
         auth: false,
         server: 'http://127.0.0.1:8000/',
         addToCarts: [],
@@ -90,8 +91,8 @@ export const useStores = defineStore('store', {
     getters: {
       userInfo: (state) => state.user,
       isAuth: (state) => {
-        let auth = state.auth;
-        if (state.authorisation.token) {
+        let auth = false;
+        if (state.token) {
           auth = true;
         }
         return auth;
@@ -100,5 +101,7 @@ export const useStores = defineStore('store', {
         return 'https://sc2houduan.bitlandweb.com/addons/shopro';
       },
     },
-    persist: true,
+    persist: {
+      localStorage: true,
+    },
   })

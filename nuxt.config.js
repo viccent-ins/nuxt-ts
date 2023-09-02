@@ -22,6 +22,7 @@ export default defineNuxtConfig({
     '@pinia-plugin-persistedstate/nuxt',
     '@element-plus/nuxt',
     '@nuxtjs/color-mode',
+    '@nuxt/image',
   ],
   colorMode: {
     preference: 'dark', // default value of $colorMode.preference

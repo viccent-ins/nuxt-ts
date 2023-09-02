@@ -2,6 +2,7 @@ import { useStores } from "~/store/store";
 import { storeToRefs } from "pinia";
 export default function useUserBuyActivity() {
     const stores = useStores();
+    const { isAuth } = storeToRefs(stores);
     const addToCart = (object) => {
         const { id, title, image, price, total } = object;
         let param = { 
@@ -53,7 +54,13 @@ export default function useUserBuyActivity() {
         };
         stores.addCompareProduct(param);
     };
-
+    const checkIsLoginButton = () => {
+      if (isAuth.value === false)  {
+          navigateTo('/login');
+      } else {
+          navigateTo('/checkout/shipping-info');
+      }
+    };
     return {
         addToCart,
         removeCart,
@@ -63,5 +70,6 @@ export default function useUserBuyActivity() {
         addToWishlist,
         resetCompare,
         removeWishList,
+        checkIsLoginButton,
     }
 }

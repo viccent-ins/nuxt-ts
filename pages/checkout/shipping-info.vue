@@ -75,7 +75,7 @@
       </div>
       <div class="flex items-center py-6 justify-between ">
         <div class="order-1 ">
-          <nuxt-link to="/public" class="btn primary font-bold hover:underline">
+          <nuxt-link to="/" class="btn primary font-bold hover:underline">
             <icon name="material-symbols:arrow-back-rounded"></icon>
             Return to shop
           </nuxt-link>

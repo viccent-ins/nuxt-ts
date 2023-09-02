@@ -10,15 +10,28 @@ export default function useLogin () {
 
     });
     const router = useRouter();
-    const { apiServer } = storeToRefs(useStores());
+    const stores = useStores();
+    const { apiServer } = storeToRefs(stores);
     const login = async () => {
         isProcessing.value = true;
             await axios.post(apiServer.value +"/user/accountLogin", loginRequest)
-                .then((response) => {
-                    // redirect to Home page
-                    localStorage.setItem("token", response.data.token);
-                        // router.push("/");
-                    console.log(response)
+                .then((res) => {
+                    console.log(res);
+                    if (res.data.code === 1) {
+                        stores.token = res.data.data.token;
+                        ElNotification({
+                            title: 'Login',
+                            message: 'Login Successfully',
+                            type: 'success',
+                        })
+                        router.push("/");
+                    } else {
+                        ElNotification({
+                            title: 'Fail',
+                            message: 'phone or password is incorrect!',
+                            type: 'error',
+                        })
+                    }
                 })
                 .catch((error) => {
                     console.log(error);

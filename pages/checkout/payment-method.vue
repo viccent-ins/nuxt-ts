@@ -79,7 +79,7 @@
              <a class=" primary ml-2" href="#">return policy</a> "&"
              <a class=" primary ml-2" href="#">privacy policy</a>
            </div>
-            <nuxt-link to="/public" class="btn primary font-bold hover:underline">
+            <nuxt-link to="/" class="btn primary font-bold hover:underline">
               <icon name="material-symbols:arrow-back-rounded"></icon>
               Return to shop
             </nuxt-link>

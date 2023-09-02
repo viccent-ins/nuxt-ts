@@ -38,12 +38,22 @@
 </template>
 
 <script setup>
+import { useStores } from "~/store/store";
+import { storeToRefs } from "pinia";
 const checked = ref(false);
+const stores = useStores();
+const { isAuth } = storeToRefs(stores);
 const {
   login,
   loginRequest,
   isProcessing,
 } = useLogin();
+const authMiddle = () => {
+  if (isAuth.value) {
+    navigateTo('/');
+  }
+}
+onMounted(() => authMiddle());
 </script>
 
 <style scoped>

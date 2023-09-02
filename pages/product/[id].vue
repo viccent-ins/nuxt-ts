@@ -35,12 +35,12 @@
                   <div class="flex my-2 items-center">
                     <div class="opacity-50 ">Discount Price:</div>
                     <strong class="text-2xl primary">
-                      <input type="number" name="price" v-model=" singleProduct.price " >￥
+                      <input type="number" name="price" v-model=" singleProduct.price " >$
                     </strong>
                   </div>
                   <div class="flex my-2">
                     <div class="opacity-50">Price:</div>
-                    <span class="opacity-70 ml-5 line-through" >￥{{ singleProduct.original_price }}</span>
+                    <span class="opacity-70 ml-5 line-through" >${{ singleProduct.original_price }}</span>
                   </div>
                 </div>
                 <hr>
@@ -61,7 +61,7 @@
                           </button>
                         </div>
                         <div class="available-amount opacity-60 ml-3">
-                          (<span id="available-quantity">{{ singleProduct.sales }}</span> Pieces sold)
+                          (<span id="available-quantity">{{ singleProduct.sales = singleProduct.original_price * singleProduct.quantity  }}</span> Pieces sold)
                         </div>
                       </div>
                   </div>
@@ -82,12 +82,12 @@
                 <div class="mt-3 flex">
                   <button type="button"
                           class="btn bg-red-200 hover:bg-red-500 flex items-center font-semibold px-4 py-2 rounded-md text-red-500 hover:text-white  text-md mr-2 "
-                          @click="addToCart(product)">
+                          @click="addToCart(singleProduct)">
                     <icon name="material-symbols:shopping-bag-outline-sharp" size="20"></icon>
                     <span> Add to cart</span>
                   </button>
                   <button type="button" class="btn bg-primary font-semibold px-4 py-2 rounded-md text-white text-md"
-                          onclick="buyNow()">
+                          @click="addToCart(singleProduct)">
                     <Icon name="material-symbols:shopping-cart-outline" size="20px" color="white"/>
                     Buy Now
                   </button>
@@ -99,12 +99,12 @@
                   <div class="flex ">
                     <!-- Add to wishlist button -->
                     <button type="button" class="btn mr-10 pl-0 hover:underline text-red-500 font-semibold"
-                            onclick="addToWishList()">
+                            @click="addToWishlist(singleProduct)">
                       Add to wishlist
                     </button>
                     <!-- Add to compare button -->
                     <button type="button" class="btn hover:underline text-red-500 font-semibold"
-                            onclick="addToCompare()">
+                            @click="compareProduct(singleProduct)">
                       Add to compare
                     </button>
                   </div>
@@ -175,24 +175,6 @@
           <div class="w-1/3">
             <div class="bg-white shadow-sm mb-3">
               <div class="position-relative p-3 text-left">
-                <div class="absolute-top-right p-2 bg-white z-1">
-                  <svg  xmsns="http://www.w3.org/2000/svg"
-                       xmsns:xlink="http://www.w3.org/1999/xlink" xms:space="preserve"
-                       viewBox="0 0 287.5 442.2" width="22" height="34">
-                    <polygon style="fill:#F8B517;"
-                             points="223.4,442.2 143.8,376.7 64.1,442.2 64.1,215.3 223.4,215.3 "></polygon>
-                    <circle style="fill:#FBD303;" cx="143.8" cy="143.8" r="143.8"></circle>
-                    <circle style="fill:#F8B517;" cx="143.8" cy="143.8" r="93.6"></circle>
-                    <polygon style="fill:#FCFCFD;" points="143.8,55.9 163.4,116.6 227.5,116.6 175.6,154.3 195.6,215.3 143.8,177.7 91.9,215.3 111.9,154.3
-                                            60,116.6 124.1,116.6 "></polygon>
-                  </svg>
-                </div>
-                <div class="opacity-50 fs-12 border-bottom">Sold by</div>
-                <a href="#" class="text-reset d-block fw-600">
-                  Nikusha
-                  <span class="ms-2"><i class="fa fa-check-circle" style="color:green"></i></span>
-                </a>
-                <div class="location opacity-70"></div>
                 <div class="text-center border rounded p-2 mt-3">
                   <div class="rating">
                     <icon color="red" name="mdi:star"></icon>
@@ -301,9 +283,14 @@
 <script setup>
 import useSingleProduct from "~/composables/useSingleProduct";
 import useProductList from "~/composables/useProductList";
+import useUserBuyActivity from "~/composables/useUserBuyActivity";
+const {
+  addToCart,
+  compareProduct,
+  addToWishlist
+} = useUserBuyActivity();
 const quantity = ref('')
 const price =ref('')
-
 function increment() { quantity.value++; }
 function decrement() {
   if (quantity.value > 1) {

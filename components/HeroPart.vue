@@ -5,23 +5,23 @@
         <!-- Category and SubCategory start here -->
         <div  class="py-3 px-4 bg-red-300 rounded-t-lg all-category relative text-left flex items-center justify-between">
           <span class="font-semibold text-lg mr-3">{{ $t('categories') }}</span>
-          <nuxt-link to="#" class="text-sm">
+          <nuxt-link to="/category" class="text-sm">
             <span class="">{{ $t('see_all') }}&gt;</span>
           </nuxt-link>
         </div>
         <ul class="list-unstyled categories py-1 xl:py-2 mb-0 text-left">
           <li class="category-nav-element" v-for="category  in categories " :key="category.name">
-            <nuxt-link to="" class=" py-3 px-3 flex-col xl:flex-row lg:flex items-center   ">
+            <nuxt-link to="/category" class=" py-3 px-3 flex-col xl:flex-row lg:flex items-center   ">
               <img  loading="lazy"  class="cat-image mr-2 opacity-60 " :src=category.image width="125"
                    :alt="category.name" />
               <span class="cat-name">{{ category.name }}</span>
             </nuxt-link>
-            <div class="sub-cat-menu c-scrollbar-light rounded shadow p-4 loaded">
+            <div class="sub-cat-menu  rounded shadow p-4 loaded">
               <div class="card-columns">
                 <div class="card shadow-none border-0">
                   <ul class="list-unstyled mb-3">
                     <li class="font-semibold border-b-2 pb-2 mb-3"
-                        v-for="subCategory in category.children" :key="subCategory.id">
+                        v-for="(subCategory , index) in category.children" :key="index">
                       <p class="text-md" >
                         {{ subCategory.name }}
                       </p>
@@ -29,9 +29,11 @@
                         <li class="font-semibold mr-2 pb-2 mb-3"
                             v-for="subCategory in subCategory.children"
                             :key="subCategory.name">
-                          <img width="100" class="bg-gray-200 mb-2 mt-4"
-                               :src="subCategory.image" :alt="subCategory.name">
-                          <p class="text-center text-sm font-medium"> {{ subCategory.name }} </p>
+                          <nuxt-link :to="`/category/detail?id=${subCategory.id}`">
+                            <img width="100" class="bg-gray-200 mb-2 mt-4"
+                                 :src="subCategory.image" :alt="subCategory.name">
+                            <p class="text-center text-sm font-medium"> {{ subCategory.name }} </p>
+                          </nuxt-link>
                         </li>
                       </ul>
                     </li>
@@ -54,7 +56,7 @@
         </el-carousel>
         <ul class="list-unstyled flex flex-wrap w-full items-center justify-between ">
           <li class=" mt-15  lg:mt-6" v-for="category  in categories " :key="category.name">
-            <nuxt-link to="#"
+            <nuxt-link :to="`/category/detail?id=${category.id}`"
                class="flex flex-col items-center rounded bg-white p-2 w-32  shadow text-center">
               <img loading="lazy" :src=category.image width="80" :alt="category.name" height="40">
 

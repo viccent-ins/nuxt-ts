@@ -1,5 +1,6 @@
-\<template>
+<template>
   <div class="bg-white">
+    {{ isAuth }}
     <div class=" border-b-[1px]">
       <div class="w-full lg:container flex items-center justify-between py-3 mx-auto px-4">
         <div class="menu-left w-full lg:w-4/5 justify-between lg:justify-start items-center flex">
@@ -19,10 +20,10 @@
           </div>
         </div>
         <div class="menu-right w-1/5 justify-end items-center  hidden lg:flex">
-          <nuxt-link  to="/user-profile">My Panel</nuxt-link>
-          <nuxt-link  to="/login">{{ $t('login') }}</nuxt-link>
-          <nuxt-link  class="border-l-2 p-2 ml-3" to="/register">{{ $t('register') }}</nuxt-link>
-          <nuxt-link  class=" p-2 ml-3" to="">LogOut</nuxt-link>
+          <nuxt-link v-if="isAuth" to="/user-profile">My Panel</nuxt-link>
+          <nuxt-link v-else to="/login">{{ $t('login') }}</nuxt-link>
+          <nuxt-link v-if="isAuth === false" class="border-l-2 p-2 ml-3" to="/register">{{ $t('register') }}</nuxt-link>
+          <div v-else class=" p-2 ml-3 cursor-pointer" @click="onLogout">Logout</div>
         </div>
       </div>
     </div>
@@ -81,20 +82,36 @@
 <script setup>
 import { Search } from '@element-plus/icons-vue'
 import { useStores } from "~/store/store";
+import { storeToRefs } from "pinia";
 const { locales, locale, setLocale } = useI18n();
 const stores = useStores();
-
+const { isAuth } = storeToRefs(stores);
 const localePath = useLocalePath();
 const selectedLocale = computed({
   get: () => locale.value, set: (value) => {
     setLocale(value);
   },
 });
+const {
+  login
+} = useLogin();
+const {
+  register
+} =useRegister();
 const logoImage = {
   src:'/images/shopro.png',
   alt:"walmart-logo"
 }
-
+const onLogout = () => {
+  let keysToRemove = ['store'];
+  keysToRemove.forEach((key) => {
+    localStorage.removeItem(key);
+    stores.token = '';
+  });
+  if (isAuth.value === false) {
+    navigateTo('/');
+  }
+};
 const logoWidth= "maxWidth:100%; height:40px"
 const search = ref('');
 const value = ref();

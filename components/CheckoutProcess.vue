@@ -8,7 +8,7 @@
             class="flex flex-col items-center w-full"
         >
           <icon name="material-symbols:shopping-cart-rounded" size="35" class="opacity-60"></icon>
-          <h4 class="text-md font-semibold primary">1.My Cart</h4>
+          <h4 class="text-md font-semibold ">1.My Cart</h4>
         </nuxt-link>
         <icon name="material-symbols:arrow-forward-ios" size="150" class="opacity-40"></icon>
         <nuxt-link

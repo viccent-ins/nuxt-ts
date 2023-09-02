@@ -8,15 +8,29 @@ export default function useRegister() {
         password: '',
         code: '1234',
     });
+
     const router = useRouter();
-    const { apiServer } = storeToRefs(useStores());
+    const stores = useStores();
+    const { apiServer } = storeToRefs(stores);
     const register = async () => {
         isProcessing.value = true;
         await axios.post(apiServer.value + "/user/register", registerRequest)
-            .then(() => {
-                localStorage.setItem('users', JSON.stringify(registerRequest))
-                // redirect to Login page
-               router.replace("/login");
+            .then((res) => {
+                if (res.data.code === 1) {
+                    ElNotification({
+                        title: 'Register',
+                        message: 'Register Successfully',
+                        type: 'success',
+                    });
+                  stores.token = res.data.data.token;
+                     router.push("/login");
+                } else {
+                    ElNotification({
+                        title: 'Fail',
+                        message: 'Registration fail',
+                        type: 'error',
+                    });
+                }
             })
             .catch((err) => console.log("err", err));
         isProcessing.value = false;

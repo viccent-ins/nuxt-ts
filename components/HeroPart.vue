@@ -111,8 +111,8 @@ const {
 .aiz-category-menu .sub-cat-menu {
   display: none;
   position: absolute;
-  width: calc(100% - 17%);
-  left: calc(18% - 18px);
+  width: calc(100% - 16%);
+  left: calc(18% - 34px);
   height: 500px;
   overflow: hidden;
   top: 0;

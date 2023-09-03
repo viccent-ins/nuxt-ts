@@ -7,7 +7,7 @@
           <div class="flex  mb-4 items-baseline border-b px-3 ">
             <h3 class="font-bold mb-0">
           <span class="border-b-2 border-red-600 text-3xl  pb-3 inline-block">
-            {{ $t('new_products') }}
+           {{ $t('new_products') }}
           </span>
             </h3>
           </div>
@@ -55,7 +55,7 @@
           <div class="flex mb-3 items-baseline border-b ">
             <h3 class="font-bold mb-0">
               <span class="border-b-2 border-red-600 text-3xl  pb-3 inline-block">
-               {{ $t('featured_products') }}
+                {{ $t('featured_products') }}
               </span>
             </h3>
           </div>
@@ -109,7 +109,7 @@
         <div class=" px-4 py-4">
           <div class="flex mb-3 items-baseline border-b ">
             <h3 class="font-bold mb-0">
-              <span class="border-b-2 border-red-600 text-3xl  pb-3 inline-block"> {{ $t('best_selling') }}</span>
+              <span class="border-b-2 border-red-600 text-3xl  pb-3 inline-block">{{ $t('best_selling') }}</span>
             </h3>
           </div>
           <div class=" relative">
@@ -219,7 +219,7 @@
         <div class=" px-4 py-4">
           <div class="flex mb-3 items-baseline border-b ">
             <h3 class="font-bold mb-0">
-              <span class="border-b-2 border-red-600 text-3xl  pb-3 inline-block"> {{ $t('women_clothing_fashion') }} </span>
+              <span class="border-b-2 border-red-600 text-3xl  pb-3 inline-block">{{ $t('women_clothing_fashion') }} </span>
             </h3>
           </div>
           <div class="swiper">
@@ -273,7 +273,7 @@
           <div class="flex mb-3 items-baseline border-b ">
             <h3 class="font-bold mb-0">
         <span class="border-b-2 border-red-600 text-3xl  pb-3 inline-block">
-         {{ $('computers_and_accessories') }}
+          {{ $t('computers_and_accessories') }}
         </span>
             </h3>
           </div>

@@ -19,10 +19,10 @@
           </div>
         </div>
         <div class="menu-right w-1/5 justify-end items-center  hidden lg:flex">
-          <nuxt-link v-if="isAuth" to="/user-profile">My Panel</nuxt-link>
+          <nuxt-link v-if="isAuth" to="/user-profile">{{ $t('my_panel') }}</nuxt-link>
           <nuxt-link v-else to="/login">{{ $t('login') }}</nuxt-link>
           <nuxt-link v-if="isAuth === false" class="border-l-2 p-2 ml-3" to="/register">{{ $t('register') }}</nuxt-link>
-          <div v-else class=" p-2 ml-3 cursor-pointer" @click="onLogout">Logout</div>
+          <div v-else class=" border-l-2 p-2 ml-3 cursor-pointer" @click="onLogout">{{ $t('logout') }}</div>
         </div>
       </div>
     </div>

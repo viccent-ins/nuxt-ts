@@ -12,7 +12,7 @@
                   <nuxt-link to="/" class="font-semibold">Home</nuxt-link>
                 </li>
                 <li>
-                  <nuxt-link to="/FAQ" class=" font-bold primary">/ "FAQ"</nuxt-link>
+                  <nuxt-link to="/faq" class=" font-bold primary">/ "FAQ"</nuxt-link>
                 </li>
               </ul>
             </div>

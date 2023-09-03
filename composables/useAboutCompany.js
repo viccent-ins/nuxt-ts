@@ -11,6 +11,7 @@ export default function useAboutCompany() {
             .then(response => {
                 AboutUs.value = response.data.data;
             }).catch((error) => {
+                console.log(error)
             });
         isLoading.value = false;
     }

@@ -7,5 +7,15 @@
     "cart": "Cart",
     "search_product": "I Am shopping for....",
     "categories": "Categories",
-    "see_all": "See All"
+    "see_all": "See All",
+    "new_products": "New Products",
+    "featured_products": "Featured Products",
+    "best_selling": "Best Selling",
+    "beauty_health_hairdressing": "Beauty, Health and Hairdressing",
+    "women_clothing_fashion": "Women's Clothing and Fashion",
+    "computers_and_accessories": "Computers and Accessories",
+    "frequently_asked_question": "Frequently asked questions",
+    "user_agreement": "User Agreement",
+    "about_company": "About Company",
+    "privacy_policy": "Privacy policy"
 }

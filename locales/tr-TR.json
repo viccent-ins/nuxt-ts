@@ -7,5 +7,15 @@
   "cart": "araba",
   "search_product": "Şunun için alışveriş yapıyorum....",
   "categories": "Kategoriler",
-  "see_all": "Hepsini gör"
+  "see_all": "Hepsini gör",
+  "new_products": "",
+  "featured_products": "",
+  "best_selling": "",
+  "beauty_health_hairdressing": "",
+  "women_clothing_fashion": "",
+  "computers_and_accessories": "",
+  "frequently_asked_question": "Sık sık artan maliyetler",
+  "user_agreement": "Kullanıcı Sözleşmesi",
+  "about_company": "Şirket hakkında",
+  "privacy_policy": "Gizlilik Politikası"
 }

@@ -7,5 +7,16 @@
   "cart": "কার্ট",
   "search_product": "আমি কেনাকাটা করি....",
   "categories" : "ক্যাটাগরি",
-  "see_all": "সবগুলো দেখ"
+  "see_all": "সবগুলো দেখ",
+  "new_products": "নতুন পণ্য",
+  "featured_products": "বৈশিষ্ট্যযুক্ত পণ্য",
+  "best_selling": "সেরা বিক্রয়",
+  "beauty_health_hairdressing": "সৌন্দর্য, স্বাস্থ্য এবং হেয়ারড্রেসিং",
+  "women_clothing_fashion": "মহিলাদের পোশাক এবং ফ্যাশন",
+  "computers_and_accessories": "কম্পিউটার এবং আনুষাঙ্গিক",
+  "frequently_asked_question": "সচরাচর জিজ্ঞাস্য",
+  "user_agreement": "ব্যবহারকারী চুক্তি",
+  "about_company": "কোম্পানী সম্পর্কে",
+  "privacy_policy": "গোপনীয়তা নীতি"
+
 }

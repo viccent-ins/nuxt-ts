@@ -7,5 +7,15 @@
   "cart": "carrinho",
   "search_product": "Estou comprando....",
   "categories": "Categories",
-  "see_all": "Ver tudo"
+  "see_all": "Ver tudo",
+  "new_products": "",
+  "featured_products": "",
+  "best_selling": "",
+  "beauty_health_hairdressing": "",
+  "women_clothing_fashion": "",
+  "computers_and_accessories": "",
+  "frequently_asked_question": "perguntas frequentes",
+  "user_agreement": "Termo de Acordo do Usuário",
+  "about_company": "Sobre companhia",
+  "privacy_policy": "Política de Privacidade"
 }

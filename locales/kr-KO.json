@@ -7,5 +7,15 @@
   "cart": "카트",
   "search_product": "나는 쇼핑 중입니다....",
   "categories": "카테고리",
-  "see_all": "모두 보기"
+  "see_all": "모두 보기",
+  "new_products": "",
+  "featured_products": "",
+  "best_selling": "",
+  "beauty_health_hairdressing": "",
+  "women_clothing_fashion": "",
+  "computers_and_accessories": "",
+  "frequently_asked_question": "비용이 자주 증가함",
+  "user_agreement": "사용자 계약",
+  "about_company": "회사 소개",
+  "privacy_policy": "개인 정보 정책"
 }

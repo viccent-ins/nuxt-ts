@@ -2,6 +2,8 @@
     "online_service": "Online Services",
     "login": "Login",
     "register" : "Register",
+    "my_panel": "My Panel",
+    "logout": "Logout",
     "compare" : "Compare",
     "wishlist": "Wishlist",
     "cart": "Cart",

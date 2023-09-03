@@ -1,34 +1,47 @@
 <template>
   <div class="container mx-auto p-5 my-16 ">
     <div class="flex justify-center">
-      <div class="shadow-lg rounded-sm w-full md:w-[500px] bg-white">
+      <div class="shadow-lg rounded-sm w-full md:w-[600px] bg-white">
         <div class="text-center py-6">
           <h1 class="text-3xl font-semibold " >
             Login to your account
           </h1>
         </div>
-        <el-form
-            ref="ruleFormRef"
-            label-position="top"
-            status-icon
-            :disabled="isProcessing"
-            class="p-6"
-        >
-          <el-form-item prop="Phone" >
-            <el-input v-model="loginRequest.account" type="text" autocomplete="off" size="large" placeholder="Phone"/>
-          </el-form-item>
-          <el-form-item prop="password">
-            <el-input size="large" v-model="loginRequest.password" type="password" autocomplete="off" @keyup.enter="login" placeholder="Password"/>
-          </el-form-item>
-          <div class=" flex justify-between py-3">
-            <el-checkbox v-model="checked" label="Remember Me" size="large" />
-            <a href="/reset" class="text-gray-500"> Forget password?</a>
+        <form  class="p-6" >
+          <input class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm" placeholder="Phone"  v-model="loginRequest.account" type="tel" required >
+          <input class="my-5 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm" placeholder="Password" v-model="loginRequest.password" type="password" autocomplete="off" @keyup.enter="login" required>
+          <div class="flex justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <input v-model="checked" type="checkbox" id="checkConditions" >
+                <label class="font-semibold" for="checkConditions">Remember Me</label>
+              </div>
+            <nuxt-link class="primary "  to="/reset">Forget password?</nuxt-link>
           </div>
-          <el-button size="large" type='primary' class="w-full" @click="login" :loading="isProcessing"
-          >Login</el-button
-          >
-        </el-form>
-        <div class="text-center mt-10 mb-6">
+          <button class="w-full btn bg-primary rounded-md py-2 text-white text-lg" @click="login" :loading="isProcessing">Login</button>
+        </form>
+
+<!--        <el-form-->
+<!--            ref="ruleFormRef"-->
+<!--            label-position="top"-->
+<!--            status-icon-->
+<!--            :disabled="isProcessing"-->
+<!--            class="p-6"-->
+<!--        >-->
+<!--          <el-form-item prop="Phone"  >-->
+<!--            <el-input v-model="loginRequest.account" type="text" autocomplete="off" size="large" placeholder="Phone" />-->
+<!--          </el-form-item>-->
+<!--          <el-form-item prop="password">-->
+<!--            <el-input size="large" v-model="loginRequest.password" type="password" autocomplete="off" @keyup.enter="login" placeholder="Password"/>-->
+<!--          </el-form-item>-->
+<!--          <div class=" flex justify-between py-3">-->
+<!--            <el-checkbox v-model="checked" label="Remember Me" size="large" />-->
+<!--            <a href="/reset" class="text-gray-500"> Forget password?</a>-->
+<!--          </div>-->
+<!--          <el-button size="large" type='primary' class="w-full" @click="login" :loading="isProcessing"-->
+<!--          >Login</el-button-->
+<!--          >-->
+<!--        </el-form>-->
+        <div class="text-center my-6">
           <p class="text-gray-500 mb-0">Dont have an account?</p>
           <NuxtLink class="primary" to="/register">Register Now</NuxtLink>
         </div>

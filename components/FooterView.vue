@@ -62,14 +62,8 @@
               </h4>
               <ul class="list-none">
                 <li class="mb-2">
-                  <nuxt-link  class="opacity-50 hover:opacity-100 " to="/login">
-                    Login
-                  </nuxt-link>
-                  <nuxt-link  class="opacity-50 hover:opacity-100 text-base"
-                     to="/login"
-                  >
-                    Logout
-                  </nuxt-link>
+                  <nuxt-link v-if="isAuth"   class="opacity-50 hover:opacity-100 " to="/login">{{ $t('login') }}</nuxt-link>
+                  <nuxt-link v-else class="opacity-50 hover:opacity-100 text-base">{{ $t('logout') }}</nuxt-link>
                 </li>
                 <li class="mb-2">
                   <nuxt-link  class="opacity-50 hover:opacity-100 text-base"
@@ -158,9 +152,13 @@
 </template>
 <script setup>
 import { useStores } from "~/store/store";
-
 const stores = useStores();
+const { isAuth } = storeToRefs(stores);
 import CompanyPolicy from "~/components/CompanyPolicy.vue";
+import { storeToRefs } from "pinia";
+const {
+  login
+} = useLogin();
 const logoImage = {
   src:'/images/shopro.png',
   alt:"walmart-logo"
@@ -179,4 +177,14 @@ const paymentSystem = {
 }
 const logoWidth= "maxWidth:100%; height:40px"
 const email = ref('')
+const onLogout = () => {
+  let keysToRemove = ['store'];
+  keysToRemove.forEach((key) => {
+    localStorage.removeItem(key);
+    stores.token = '';
+  });
+  if (isAuth.value === false) {
+    navigateTo('/');
+  }
+};
 </script>

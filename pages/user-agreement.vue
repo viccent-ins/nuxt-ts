@@ -4,7 +4,7 @@
       <div class="w-full lg:container  flex-col lg:flex-row lg:flex items-start  mt-5 mx-auto px-4 py-6">
         <div class="flex justify-between w-full">
           <div>
-            <h3 class="text-lg font-bold">Return Policy</h3>
+            <h3 class="text-lg font-bold">User Agreement</h3>
           </div>
           <div>
             <ul class="flex items-center">
@@ -12,7 +12,7 @@
                 <nuxt-link to="/" class="font-semibold">Home</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/return-policy" class=" font-bold primary">/ "Return policy"</nuxt-link>
+                <nuxt-link to="/user-agreement" class=" font-bold primary">/ "User Agreement"</nuxt-link>
               </li>
             </ul>
           </div>
@@ -22,26 +22,18 @@
     <section class="mb-44">
       <div class="w-full lg:container  flex-col lg:flex-row lg:flex items-start  mt-5 mx-auto px-4 py-6">
         <div class="p-4 bg-white rounded shadow overflow-hidden">
-          <ul class="list-none mt-4 p-4 ">
-            <li
-                class="mb-6"
-                v-for="(FrequentlyAskedQuestion , index ) in FrequentlyAskedQuestions"
-                :key="index"
-                v-loading="isLoading"
-            >
-              <h3 class="text-xl font-bold mb-4 ">{{ FrequentlyAskedQuestion.title }}</h3>
-              <p>{{ FrequentlyAskedQuestion.content }}</p>
-            </li>
-          </ul>
+          <div class=" mt-4 p-4 ">
+            <h3 class="text-xl font-bold mb-4 ">{{ userAgreement.title }}</h3>
+            <p v-html="userAgreement.content"></p>
+          </div>
         </div>
       </div>
     </section>
   </div>
 </template>
 <script setup >
-import useFaq from "~/composables/useFaq";
+import useUserAgreement from "~/composables/useUserAgreement"
 const {
-  FrequentlyAskedQuestions,
-    isLoading
-} = useFaq();
+  userAgreement,
+} = useUserAgreement();
 </script>

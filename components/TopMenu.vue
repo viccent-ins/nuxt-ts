@@ -1,6 +1,5 @@
 <template>
   <div class="bg-white">
-    {{ isAuth }}
     <div class=" border-b-[1px]">
       <div class="w-full lg:container flex items-center justify-between py-3 mx-auto px-4">
         <div class="menu-left w-full lg:w-4/5 justify-between lg:justify-start items-center flex">

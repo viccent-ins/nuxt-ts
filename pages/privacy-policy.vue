@@ -4,7 +4,7 @@
       <div class="w-full lg:container  flex-col lg:flex-row lg:flex items-start  mt-5 mx-auto px-4 py-6">
         <div class="flex justify-between w-full">
           <div>
-            <h3 class="text-lg font-bold">About Company</h3>
+            <h3 class="text-lg font-bold">Privacy Policy</h3>
           </div>
           <div>
             <ul class="flex items-center">
@@ -12,7 +12,7 @@
                 <nuxt-link to="/" class="font-semibold">Home</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/privacyPolicy" class=" font-bold primary">/ "Privacy Policy"</nuxt-link>
+                <nuxt-link to="/privacy-policy" class=" font-bold primary">/ "Privacy Policy"</nuxt-link>
               </li>
             </ul>
           </div>

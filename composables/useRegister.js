@@ -12,7 +12,19 @@ export default function useRegister() {
     const router = useRouter();
     const stores = useStores();
     const { apiServer } = storeToRefs(stores);
+    const errors = reactive({
+        errorPhone: '',
+        errorPassword: '',
+    })
     const register = async () => {
+        errors.errorPhone = '';
+        errors.errorPassword = '';
+        if (!registerRequest.mobile) {
+            return errors.errorPhone = 'phone is required!';
+
+        } else if (!registerRequest.password) {
+            return errors.errorPassword = 'password is required!';
+        }
         isProcessing.value = true;
         await axios.post(apiServer.value + "/user/register", registerRequest)
             .then((res) => {
@@ -38,6 +50,7 @@ export default function useRegister() {
     return {
         registerRequest,
         isProcessing,
-        register
+        register,
+        errors,
     };
 }

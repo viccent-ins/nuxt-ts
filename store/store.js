@@ -102,6 +102,6 @@ export const useStores = defineStore('store', {
       },
     },
     persist: {
-      localStorage: true,
+      storage: persistedState.localStorage,
     },
   })

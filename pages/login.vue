@@ -3,22 +3,38 @@
     <div class="flex justify-center">
       <div class="shadow-lg rounded-sm w-full md:w-[600px] bg-white">
         <div class="text-center py-6">
-          <h1 class="text-3xl font-semibold " >
+          <h1 class="text-3xl font-semibold ">
             Login to your account
           </h1>
         </div>
-        <form  class="p-6" >
-          <input class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm" placeholder="Phone" autocomplete="off"  v-model="loginRequest.account" type="tel" required >
-          <input class="my-5 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm" placeholder="Password" v-model="loginRequest.password" type="password" autocomplete="off" @keyup.enter="login" required>
-          <div class="flex justify-between mb-3">
-              <div class="flex items-center gap-3">
-                <input v-model="checked" type="checkbox" id="checkConditions" >
-                <label class="font-semibold" for="checkConditions">Remember Me</label>
-              </div>
-            <nuxt-link class="primary "  to="/reset">Forget password?</nuxt-link>
+        <el-form
+            label-position="top"
+            status-icon
+            :disabled="isProcessing"
+            class="p-6"
+        >
+          <el-form-item>
+            <p class="primary">
+              {{ errors.errorPhone }}
+            </p>
+            <el-input v-model="loginRequest.account" type="text" autocomplete="off" size="large" placeholder="Phone"/>
+          </el-form-item>
+          <el-form-item prop="password">
+            <p class="primary">
+              {{ errors.errorPassword }}
+            </p>
+            <el-input size="large" v-model="loginRequest.password" type="password" autocomplete="off"
+                      @keyup.enter="login" placeholder="Password"/>
+          </el-form-item>
+          <div class=" flex justify-between py-3">
+            <el-checkbox v-model="checked" label="Remember Me" size="large"/>
+            <a href="/reset" class="text-gray-500"> Forget password?</a>
           </div>
-          <button class="w-full btn bg-primary rounded-md py-2 text-white text-lg" @click="login" :loading="isProcessing">Login</button>
-        </form>
+          <el-button size="large" type='primary' class="w-full" @click="login" :loading="isProcessing"
+          >Login
+          </el-button
+          >
+        </el-form>
         <div class="text-center my-6">
           <p class="text-gray-500 mb-0">Dont have an account?</p>
           <NuxtLink class="primary" to="/register">Register Now</NuxtLink>
@@ -29,15 +45,18 @@
 </template>
 
 <script setup>
+import useLogin from "~/composables/useLogin";
 import { useStores } from "~/store/store";
 import { storeToRefs } from "pinia";
+
 const checked = ref(false);
 const stores = useStores();
-const { isAuth } = storeToRefs(stores);
+const {isAuth} = storeToRefs(stores);
 const {
   login,
   loginRequest,
   isProcessing,
+  errors,
 } = useLogin();
 const authMiddle = () => {
   if (isAuth.value) {
@@ -45,6 +64,7 @@ const authMiddle = () => {
   }
 }
 onMounted(() => authMiddle());
+
 </script>
 
 <style scoped>

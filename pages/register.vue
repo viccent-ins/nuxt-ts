@@ -7,18 +7,65 @@
             Create an account
           </h1>
         </div>
-        <form  class="p-6" >
-          <input class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm" placeholder="Phone" autocomplete="off" v-model.number="registerRequest.mobile" type="tel" required >
-          <input class="my-5 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm" type="password" autocomplete="off" placeholder="Password" v-model="registerRequest.password" required>
-          <input class="mb-5 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm" type="text"  placeholder="Code" v-model="registerRequest.code">
-          <div class="flex mb-5">
-            <input v-model="checked" type="checkbox" id="checkConditions" >
-            <label class="text-md ml-2" for="checkConditions">I have read and complied with</label>
-            <nuxt-link class="primary text-md hover:underline"  to="/user-agreement">"User Agreement"</nuxt-link> and
-            <nuxt-link class="primary text-md hover:underline"  to="/privacy-policy">"Privacy Agreement"</nuxt-link>
+<!--        <form class="p-6">-->
+<!--          <input class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300-->
+<!--           placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm"-->
+<!--                 placeholder="Phone" autocomplete="off" v-model="registerRequest.mobile" type="tel" required>-->
+<!--          <p class="primary">-->
+<!--            {{ errors.errorPhone }}-->
+<!--          </p>-->
+<!--          <input class="my-5 px-3 py-2 bg-white border shadow-sm border-slate-300-->
+<!--           placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm"-->
+<!--                 type="password" autocomplete="off" placeholder="Password" v-model="registerRequest.password" required>-->
+<!--          <p class="primary">-->
+<!--            {{ errors.errorPassword }}-->
+<!--          </p>-->
+<!--          <input class="mb-5 px-3 py-2 bg-white border shadow-sm border-slate-300-->
+<!--           placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm"-->
+<!--                 type="text" placeholder="Code" v-model="registerRequest.code">-->
+<!--          <div class="flex mb-5">-->
+<!--            <input v-model="checked" type="checkbox" id="checkConditions">-->
+<!--            <label class="text-md ml-2" for="checkConditions">I have read and complied with</label>-->
+<!--            <nuxt-link class="primary text-md hover:underline" to="/user-agreement">"User Agreement"</nuxt-link>-->
+<!--            and-->
+<!--            <nuxt-link class="primary text-md hover:underline" to="/privacy-policy">"Privacy Agreement"</nuxt-link>-->
+<!--          </div>-->
+<!--          <button type="button" class="w-full  btn  rounded-md bg-primary py-2 text-white text-lg" @click="register"-->
+<!--                  :loading="isProcessing">Create Account-->
+<!--          </button>-->
+<!--        </form>-->
+        <el-form
+            label-position="top"
+            status-icon
+            :disabled="isProcessing"
+            class="p-6"
+        >
+          <el-form-item>
+            <p class="primary">
+              {{ errors.errorPhone }}
+            </p>
+            <el-input v-model="registerRequest.mobile" type="text" autocomplete="off" size="large" placeholder="Phone"/>
+          </el-form-item>
+          <el-form-item prop="password">
+            <p class="primary">
+              {{ errors.errorPassword }}
+            </p>
+            <el-input size="large" v-model="registerRequest.password" type="password" autocomplete="off"
+                       placeholder="Password"/>
+          </el-form-item>
+          <el-form-item prop="code">
+            <el-input size="large" v-model="registerRequest.code" type="text" autocomplete="on"
+                      placeholder="Verification Code"/>
+          </el-form-item>
+          <div class=" flex items-center py-3">
+            <el-checkbox v-model="checked" label="I have read and complied with" size="large"/>
+            <nuxt-link class="primary text-md hover:underline" to="/user-agreement">"User Agreement"</nuxt-link> and
+            <nuxt-link class="primary text-md hover:underline" to="/privacy-policy">"Privacy Agreement"</nuxt-link>
           </div>
-          <button  class="w-full  btn  rounded-md bg-primary py-2 text-white text-lg"  @click="register" :loading="isProcessing">Create Account</button>
-        </form>
+          <el-button size="large" type='primary' class="w-full" @click="register" :loading="isProcessing"
+          >Create Account</el-button>
+        </el-form>
+
         <div class="text-center mt-4 mb-6">
           <p class="text-muted mb-0">Already have an account?</p>
           <NuxtLink to="/login" class="primary">Log In</NuxtLink>
@@ -29,21 +76,22 @@
 </template>
 
 <script setup>
+import useRegister from "~/composables/useRegister";
 import { useStores } from "~/store/store";
 import { storeToRefs } from "pinia";
+
 const checked = ref(false);
 const stores = useStores();
-const { isAuth } = storeToRefs(stores);
+const {isAuth} = storeToRefs(stores);
 const {
   registerRequest,
   isProcessing,
-    register,
-
+  register,
+  errors,
 } = useRegister();
 const authMiddle = () => {
   if (isAuth.value) {
     navigateTo('/');
-
   }
 }
 onMounted(() => authMiddle());

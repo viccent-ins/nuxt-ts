@@ -62,24 +62,22 @@
               </h4>
               <ul class="list-none">
                 <li class="mb-2">
-                  <nuxt-link v-if="isAuth"   class="opacity-50 hover:opacity-100 " to="/login">{{ $t('login') }}</nuxt-link>
-                  <nuxt-link v-else class="opacity-50 hover:opacity-100 text-base">{{ $t('logout') }}</nuxt-link>
+                  <nuxt-link v-if="isAuth"  @click="onLogout"  class="opacity-50 hover:opacity-100 text-base cursor-pointer">{{ $t('logout') }}</nuxt-link>
+                  <nuxt-link v-else class="opacity-50 hover:opacity-100  cursor-pointer" to="/login">{{ $t('login') }}</nuxt-link>
                 </li>
                 <li class="mb-2">
-                  <nuxt-link  class="opacity-50 hover:opacity-100 text-base"
-                     to="/user-profile/purchase-history">
+                  <nuxt-link  class="opacity-50 hover:opacity-100 text-md cursor-pointer"  v-on:click="routeOrderHistoryIsLogin">
                     Order History
                   </nuxt-link>
                 </li>
                 <li class="mb-2">
-                  <nuxt-link  class="opacity-50 hover:opacity-100 text-reset"
-                     to="/user-profile/wishlist">
+                  <nuxt-link  class="opacity-50 hover:opacity-100 text-md cursor-pointer"  v-on:click="routeWishlistIsLogin">
                     My Wishlist
                   </nuxt-link>
                 </li>
                 <li class="mb-2">
                   <nuxt-link  class="opacity-50 hover:opacity-100 text-light"
-                     to="https://wal-marting.com/affiliate">Be an affiliate partner</nuxt-link>
+                     to="#">Be an affiliate partner</nuxt-link>
                 </li>
               </ul>
             </div>
@@ -152,13 +150,25 @@
 </template>
 <script setup>
 import { useStores } from "~/store/store";
+import { storeToRefs } from "pinia";
 const stores = useStores();
 const { isAuth } = storeToRefs(stores);
 import CompanyPolicy from "~/components/CompanyPolicy.vue";
-import { storeToRefs } from "pinia";
+import useUserBuyActivity from "~/composables/useUserBuyActivity";
 const {
-  login
-} = useLogin();
+  routeWishlistIsLogin,
+  routeOrderHistoryIsLogin
+} = useUserBuyActivity();
+const onLogout = () => {
+  let keysToRemove = ['store'];
+  keysToRemove.forEach((key) => {
+    localStorage.removeItem(key);
+    stores.token = '';
+  });
+  if (isAuth.value === false) {
+    navigateTo('/');
+  }
+};
 const logoImage = {
   src:'/images/shopro.png',
   alt:"walmart-logo"
@@ -177,14 +187,5 @@ const paymentSystem = {
 }
 const logoWidth= "maxWidth:100%; height:40px"
 const email = ref('')
-const onLogout = () => {
-  let keysToRemove = ['store'];
-  keysToRemove.forEach((key) => {
-    localStorage.removeItem(key);
-    stores.token = '';
-  });
-  if (isAuth.value === false) {
-    navigateTo('/');
-  }
-};
+
 </script>

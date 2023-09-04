@@ -58,8 +58,22 @@ export default function useUserBuyActivity() {
       if (isAuth.value === false)  {
           navigateTo('/login');
       } else {
-          navigateTo('/checkout/shipping-info');
+          return navigateTo('/checkout/shipping-info');
       }
+    };
+    const routeWishlistIsLogin = () => {
+        if (isAuth.value === false)  {
+            navigateTo('/login');
+        } else {
+            return navigateTo('/user-profile/wishlist');
+        }
+    };
+    const routeOrderHistoryIsLogin = () => {
+        if (isAuth.value === false)  {
+            navigateTo('/login');
+        } else {
+            return navigateTo('/user-profile/purchase-history');
+        }
     };
     return {
         addToCart,
@@ -71,5 +85,7 @@ export default function useUserBuyActivity() {
         resetCompare,
         removeWishList,
         checkIsLoginButton,
+        routeWishlistIsLogin,
+        routeOrderHistoryIsLogin
     }
 }

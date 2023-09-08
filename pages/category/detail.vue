@@ -12,8 +12,8 @@
      </div>
     <div class="bg-white rounded shadow-sm w-full lg:container  flex-col lg:flex-row lg:flex items-start  my-5 mx-auto py-6">
       <div class=" w-full p-4">
-        <div class="flex-wrap flex " >
-          <div v-for="(categoryChildren, index) in categoryChildrens" :key="index" style="width: 290px;" v-loading="isLoading">
+        <div class="flex-wrap flex " v-if="categoryChildrens.length>0" >
+          <div  v-for="(categoryChildren, index) in categoryChildrens" :key="index" style="width: 290px;" v-loading="isLoading">
             <div>
               <div class="carousel-box mr-4">
                 <div class="border overflow-hidden rounded hover:shadow mt-1 mb-2 bg-white transition duration-100 ease-in-out">
@@ -36,6 +36,12 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div v-else>
+          <div class="flex flex-col items-center">
+            <img src="/images/empty_goods.png" alt="Empty goods">
+            <p class="text-md font-semibold">This product is not currently available, there are more good products waiting for you~</p>
           </div>
         </div>
       </div>

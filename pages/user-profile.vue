@@ -16,7 +16,7 @@
                <div>
                  <ul class="bg-white py-6 px-3">
                    <li class="p-3 bg-red-200 rounded-sm">
-                     <NuxtLink to="/user-profile" class=" flex gap-4 items-center ">
+                     <NuxtLink to="" class=" flex gap-4 items-center ">
                        <icon name="material-symbols:home-outline-rounded" size="20" color="red"></icon>
                        <h5 class="font-semibold text-md ">Dashboard</h5>
                      </NuxtLink>
